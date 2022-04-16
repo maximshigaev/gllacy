@@ -5,6 +5,7 @@ import {
   Header,
   Offers,
   Promotions,
+  Assortment,
 } from '../';
 
 export const MainPage: FC = () => (
@@ -14,6 +15,7 @@ export const MainPage: FC = () => (
       <h1 className="visually-hidden">Магазин мороженого Глэйси</h1>
       <Offers />
       <Promotions />
+      <Assortment />
     </main>
   </>
 );
