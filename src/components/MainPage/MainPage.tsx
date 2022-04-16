@@ -4,6 +4,7 @@ import { FC } from 'react';
 import {
   Header,
   Offers,
+  Promotions,
 } from '../';
 
 export const MainPage: FC = () => (
@@ -12,6 +13,7 @@ export const MainPage: FC = () => (
     <main>
       <h1 className="visually-hidden">Магазин мороженого Глэйси</h1>
       <Offers />
+      <Promotions />
     </main>
   </>
 );
