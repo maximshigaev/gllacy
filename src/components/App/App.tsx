@@ -1,9 +1,10 @@
 import { FC } from 'react';
 
-import { Header } from '../';
+// Components
+import { MainPage } from '../';
 
 export const App: FC = () => (
   <>
-    <Header />
+    <MainPage />
   </>
 );
