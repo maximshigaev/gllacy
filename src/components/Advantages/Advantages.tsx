@@ -2,6 +2,7 @@ import { FC } from 'react';
 
 export const Advantages: FC = () => (
   <section>
+    <h2 className="visually-hidden">Наши преимущества</h2>
     <p>
       Магазин Глэйси — это онлайн- и офлайн-магазин по продаже мороженого собственного производства на развес
     </p>
