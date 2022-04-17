@@ -15,7 +15,7 @@ export const Offers: FC = () => (
           height="584"
         />
         <h3>Крем-брюле и пломбир с малиновым джемом</h3>
-        <button type="button">Давайте оба</button>
+        <button type="button" title="Давайте оба">Давайте оба</button>
       </li>
     </ul>
     <ul>

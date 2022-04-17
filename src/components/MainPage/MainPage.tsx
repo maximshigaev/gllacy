@@ -9,6 +9,7 @@ import {
   Advantages,
   News,
   SubscriptionForm,
+  Contacts,
 } from '../';
 
 export const MainPage: FC = () => (
@@ -22,6 +23,7 @@ export const MainPage: FC = () => (
       <Advantages />
       <News />
       <SubscriptionForm />
+      <Contacts />
     </main>
   </>
 );

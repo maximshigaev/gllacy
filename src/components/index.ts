@@ -8,3 +8,4 @@ export { AssortmentItem } from './AssortmentItem/AssortmentItem';
 export { Advantages} from './Advantages/Advantages';
 export { News } from './News/News';
 export { SubscriptionForm } from './SubscriptionForm/SubscriptionForm';
+export { Contacts } from './Contacts/Contacts';
