@@ -6,6 +6,7 @@ import {
   Offers,
   Promotions,
   Assortment,
+  Advantages,
 } from '../';
 
 export const MainPage: FC = () => (
@@ -16,6 +17,7 @@ export const MainPage: FC = () => (
       <Offers />
       <Promotions />
       <Assortment />
+      <Advantages />
     </main>
   </>
 );
