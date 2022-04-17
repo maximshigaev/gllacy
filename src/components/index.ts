@@ -7,3 +7,4 @@ export { Assortment } from './Assortment/Assortment';
 export { AssortmentItem } from './AssortmentItem/AssortmentItem';
 export { Advantages} from './Advantages/Advantages';
 export { News } from './News/News';
+export { SubscriptionForm } from './SubscriptionForm/SubscriptionForm';
