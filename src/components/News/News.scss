@@ -1,0 +1,12 @@
+.news {
+  &__title {
+    font-weight: 500;
+  }
+
+  &__heading {
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: underline;
+    line-height: 1.25;
+  }
+}
