@@ -11,3 +11,4 @@ export { SubscriptionForm } from './SubscriptionForm/SubscriptionForm';
 export { Contacts } from './Contacts/Contacts';
 export { Footer } from './Footer/Footer';
 export { PromotionItem } from './PromotionItem/PromotionItem';
+export { AdvantagesItem } from './AdvantagesItem/AdvantagesItem';
