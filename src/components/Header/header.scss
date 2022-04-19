@@ -1,0 +1,29 @@
+.header {
+  &__nav-link {
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.13;
+  }
+
+  &__login-link,
+  &__cart-link {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.14;
+    color: #ffffff;
+  }
+
+  &__time {
+    font-size: 14px;
+    line-height: 1.14;
+    color: #ffffff;
+    font-weight: 700;
+  }
+
+  &__phone {
+    font-size: 22px;
+    line-height: 1.09;
+    color: #ffffff;
+    font-weight: 700;
+  }
+}
