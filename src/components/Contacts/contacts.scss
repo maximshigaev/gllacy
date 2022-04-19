@@ -1,0 +1,13 @@
+.contacts {
+  &__text {
+    font-size: 14px;
+    line-height: 1.43;
+  }
+
+  &__address,
+  &__phone {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.33;
+  }
+}

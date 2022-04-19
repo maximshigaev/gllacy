@@ -1,21 +1,30 @@
 import { FC } from 'react';
 
+// Styles
+import './contacts.scss';
+
 export const Contacts: FC = () => (
   <section>
     <h2 className="visually-hidden">Контакты</h2>
     <div>
-      <p>
+      <p className="contacts__text">
         Адрес главного офиса и офлайн-магазина:
       </p>
-      <p>
+      <p className="contacts__address">
         ул. Большая Конюшенная 19/8, Санкт-Петербург
       </p>
-      <p>
+      <p className="contacts__text">
         Для заказов по телефону:
-        <span>8 812 450-25-25</span>
+        <span className="contacts__phone">8 812 450-25-25</span>
         (с 10 до 20 ежедневно)
       </p>
-      <button type="button" title="Форма обратной связи">Форма обратной связи</button>
+      <button
+        className="button"
+        type="button"
+        title="Форма обратной связи"
+      >
+        Форма обратной связи
+      </button>
     </div>
   </section>
 );
