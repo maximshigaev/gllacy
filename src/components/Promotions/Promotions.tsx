@@ -1,27 +1,24 @@
 import { FC } from 'react';
 
+// Components
+import { PromotionItem } from '../';
+
+// Constants
+import { promotionItems } from '../../constants';
+
 export const Promotions: FC = () => (
   <section>
     <h2 className="visually-hidden">Акции</h2>
     <ul>
-      <li>
-        <h3>Малинка даром!</h3>
-        <p>
-          При покупке 2 кг любого фруктового мороженого, добавим в ваш заказ банку малинового варенья бесплатно.
-        </p>
-        <button type="button" title="Хочу варенье!">
-          Хочу варенье!
-        </button>
-      </li>
-      <li>
-        <h3>Шоколадки даром!</h3>
-        <p>
-          При покупке 2 кг пломбира, добавим в ваш заказ упаковку вкуснейшей шоколадной присыпки совершенно бесплатно.
-        </p>
-        <button type="button" title="Хочу шоколадки!">
-          Хочу шоколадки!
-        </button>
-      </li>
+      {promotionItems.map(({ id, text, title, buttonText }) => (
+        <li key={id}>
+          <PromotionItem
+            title={title}
+            text={text}
+            buttonText={buttonText}
+          />
+        </li>  
+      ))}
     </ul>
   </section>
 );

@@ -11,12 +11,13 @@ export const Assortment: FC = () => (
     <h2 className="visually-hidden">Наш ассортимент</h2>
     <ul>
       {assortmentItems.map(({ id, src, text, price }) => (
-        <AssortmentItem
-          key={id}
-          src={src}
-          text={text}
-          price={price}
-        />
+        <li key={id}>
+          <AssortmentItem
+            src={src}
+            text={text}
+            price={price}
+          />
+        </li>
       ))}
     </ul>
   </section>

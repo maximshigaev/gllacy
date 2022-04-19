@@ -1,12 +1,12 @@
 import { FC } from 'react';
 
-type Tprops = {
+type TProps = {
   src: string;
   text: string;
   price: number;
 }
 
-export const AssortmentItem: FC<Tprops> = ({ src, text, price}) => (
+export const AssortmentItem: FC<TProps> = ({ src, text, price}) => (
    <> 
     <img
       src={src}
