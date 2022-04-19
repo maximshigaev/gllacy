@@ -1,5 +1,8 @@
 import { FC } from 'react';
 
+// Styles
+import './assortmentItem.scss';
+
 type TProps = {
   src: string;
   text: string;
@@ -14,10 +17,10 @@ export const AssortmentItem: FC<TProps> = ({ src, text, price}) => (
       width="267"
       height="267"
     />
-    <span>
+    <span className="assortmentItem__price">
       {price}
-      <small>/кг</small>
+      <small className="assortmentItem__unit">/кг</small>
     </span>
-    <p>{text}</p>
+    <p className="assortmentItem__text">{text}</p>
   </>
 );
