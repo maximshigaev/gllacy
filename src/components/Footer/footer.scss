@@ -1,0 +1,20 @@
+.footer {
+  &__info-link {
+    font-size: 13px;
+    color: #ffffff;
+
+    &--suppliers {
+      font-weight: bold;
+    }
+  }
+
+  &__copyright {
+    font-size: 12px;
+    line-height: 1.5;
+    color: #fefefe;
+  }
+
+  &__copyright-link {
+    color: #fefefe;
+  }
+}

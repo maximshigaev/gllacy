@@ -1,5 +1,8 @@
 import { FC } from 'react';
 
+// Styles
+import './footer.scss';
+
 export const Footer: FC = () => (
   <footer>
     <h2 className="visually-hidden">Полезные ссылки</h2>
@@ -27,21 +30,21 @@ export const Footer: FC = () => (
     </ul>
     <ul>
       <li>
-        <a href="#">Для поставщиков</a>
+        <a className="footer__info-link footer__info-link--suppliers" href="#">Для поставщиков</a>
       </li>
       <li>
-        <a href="#">Наши документы</a>
+        <a className="footer__info-link" href="#">Наши документы</a>
       </li>
       <li>
-        <a href="#">О производстве</a>
+        <a className="footer__info-link" href="#">О производстве</a>
       </li>
       <li>
-        <a href="#">Экологические стандарты</a>
+        <a className="footer__info-link" href="#">Экологические стандарты</a>
       </li>
     </ul>
-    <div>
+    <div className="footer__copyright">
       <p></p>
-      Сделано в <a href="#">HTML Academy</a> © 2017
+      Сделано в <a className="footer__copyright-link" href="#">HTML Academy</a> © 2017
     </div>
   </footer>
 );
