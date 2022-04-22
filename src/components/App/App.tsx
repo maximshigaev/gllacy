@@ -1,10 +1,14 @@
 import { FC } from 'react';
+import {
+  Route,
+  Routes,
+} from 'react-router-dom';
 
 // Components
 import { MainPage } from '../';
 
 export const App: FC = () => (
-  <>
-    <MainPage />
-  </>
+  <Routes>
+    <Route path={`/`} element={<MainPage />} />
+  </Routes>
 );
