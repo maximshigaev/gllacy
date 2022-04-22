@@ -44,8 +44,8 @@ export const Offers: FC<TProps> = ({ currentTopOfferId, setCurrentTopOfferId }) 
       <h2 className="visually-hidden">Лучшие предложения</h2>
       {renderTopOffer(currentTopOfferId)}
       <ul>
-        {offersItems.map((_, index) => (
-          <li>
+        {offersItems.map((offerItem, index) => (
+          <li key={offerItem.id}>
             <button
               className={getToggleBtnClass(index + 1)}
               type="button"

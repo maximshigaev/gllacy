@@ -1,3 +1,5 @@
+@import '../../styles/variables.scss';
+
 .main-page {
   &__container {
     width: 1250px;
@@ -7,15 +9,15 @@
 
   &__wrapper {
     &--1 {
-      background-color: #849d8f;
+      background-color: $mainBackgroundColor1;
     }
 
     &--2 {
-      background-color: #8996a6;
+      background-color: $mainBackgroundColor2;
     }
 
     &--3 {
-      background-color: #9d8b84;
+      background-color: $mainBackgroundColor3;
     }
   }
 
