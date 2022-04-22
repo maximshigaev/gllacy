@@ -4,7 +4,7 @@ import { FC } from 'react';
 import './subscriptionForm.scss'; 
 
 export const SubscriptionForm: FC = () => (
-  <section>
+  <section className="subscription-form">
     <h2 className="visually-hidden">Форма подписки</h2>
     <p className="subscription-form__text">
       Подпишитесь на нашу сладкую рассылку и будете всегда в курсе всего самого вкусного, что у нас происходит. Обещаем

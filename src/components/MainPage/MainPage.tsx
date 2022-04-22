@@ -32,8 +32,10 @@ export const MainPage: FC = () => {
           <Promotions />
           <Assortment />
           <Advantages />
-          <News />
-          <SubscriptionForm />
+          <div className="main-page__columns-wrapper">
+            <News />
+            <SubscriptionForm />
+          </div>
           <Contacts />
         </main>
         <Footer />
