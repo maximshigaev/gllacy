@@ -13,11 +13,11 @@ export const Contacts: FC = () => (
       <p className="contacts__address">
         ул. Большая Конюшенная 19/8, Санкт-Петербург
       </p>
-      <p className="contacts__text">
+      <div className="contacts__text">
         Для заказов по телефону:
         <span className="contacts__phone">8 812 450-25-25</span>
-        (с 10 до 20 ежедневно)
-      </p>
+        <p>(с 10 до 20 ежедневно)</p>
+      </div>
       <button
         className="button"
         type="button"
