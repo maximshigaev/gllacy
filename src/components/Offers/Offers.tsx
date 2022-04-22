@@ -1,6 +1,5 @@
 import {
   FC,
-  useState,
   useCallback,
 } from 'react';
 import cn from 'classnames';
@@ -11,15 +10,18 @@ import { OffersItem } from '../';
 // Constants
 import { offersItems } from '../../constants';
 
+type TProps = {
+  currentTopOfferId: number;
+  setCurrentTopOfferId: (id: number) => void;
+}
+
 type TCurrentTopOffer = {
   title: string;
   src: string;
   id: number;
 }
 
-export const Offers: FC = () => {
-  const [currentTopOfferId, setCurrentTopOfferId] = useState(1);
-
+export const Offers: FC<TProps> = ({ currentTopOfferId, setCurrentTopOfferId }) => {
   const renderTopOffer = (topOfferId: number) => {
     const currentTopOffer = offersItems.find((topOffer) => topOffer.id === topOfferId);
 
