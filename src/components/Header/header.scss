@@ -18,6 +18,7 @@
     line-height: 1.14;
     color: #ffffff;
     font-weight: 700;
+    width: 100%;
   }
 
   &__phone {
@@ -25,5 +26,25 @@
     line-height: 1.09;
     color: #ffffff;
     font-weight: 700;
+    width: 100%;
+  }
+
+  &__logo {
+    width: 154px;
+    height: 62px;
+  }
+
+  &__nav {
+    display: grid;
+    grid-template-columns: 154px 1fr 263px;
+  }
+
+  &__nav-links {
+    display: flex;
+  }
+
+  &__cart-container {
+    display: flex;
+    flex-wrap: wrap;
   }
 }
