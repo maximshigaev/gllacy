@@ -1,4 +1,8 @@
-import { FC } from 'react';
+import {
+  FC,
+  useState,
+} from 'react';
+import cn from 'classnames';
 
 // Components
 import {
@@ -13,19 +17,28 @@ import {
   Footer,
 } from '../';
 
-export const MainPage: FC = () => (
-  <>
-    <Header />
-    <main>
-      <h1 className="visually-hidden">Магазин мороженого Глэйси</h1>
-      <Offers />
-      <Promotions />
-      <Assortment />
-      <Advantages />
-      <News />
-      <SubscriptionForm />
-      <Contacts />
-      <Footer />
-    </main>
-  </>
-);
+// Styles
+import './mainPage.scss';
+
+export const MainPage: FC = () => {
+  const [currentTopOfferId, setCurrentTopOfferId] = useState(1);
+  
+  return (
+    <div className={`main-page__wrapper main-page__wrapper--${currentTopOfferId}`}>
+      <div className="main-page__container">
+        <Header />
+        <main>
+          <h1 className="visually-hidden">Магазин мороженого Глэйси</h1>
+          <Offers currentTopOfferId={currentTopOfferId} setCurrentTopOfferId={setCurrentTopOfferId} />
+          <Promotions />
+          <Assortment />
+          <Advantages />
+          <News />
+          <SubscriptionForm />
+          <Contacts />
+        </main>
+        <Footer />
+      </div>
+    </div>
+  );
+}

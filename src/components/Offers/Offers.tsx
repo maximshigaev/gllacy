@@ -1,42 +1,57 @@
-import { FC } from 'react';
+import {
+  FC,
+  useState,
+  useCallback,
+} from 'react';
+import cn from 'classnames';
 
-// Styles
-import './offers.scss';
+// Components
+import { OffersItem } from '../';
 
-// Images
-import topOffer1 from '../../images/top-offer-1.png';
+// Constants
+import { offersItems } from '../../constants';
 
-export const Offers: FC = () => (
-  <section>
-    <h2 className="visually-hidden">Лучшие предложения</h2>
-    <ul>
-      <li>
-        <img
-          src={topOffer1}
-          alt="Крем-брюле и пломбир с малиновым джемом"
-          width="647"
-          height="584"
-        />
-        <h3 className="offers__title">Крем-брюле и пломбир с малиновым джемом</h3>
-        <button
-          className="button offers__add-button"
-          type="button"
-          title="Давайте оба!"
-        >
-          Давайте оба!
-        </button>
-      </li>
-    </ul>
-    <ul>
-      <li>
-        <button className="offers__toggle-button offers__toggle-button--current" type="button" />
-      </li>
-      <li>
-        <button className="offers__toggle-button" type="button" />
-      </li>
-      <li>
-        <button className="offers__toggle-button" type="button" />
-      </li>
-    </ul>
-  </section>
-);
+type TCurrentTopOffer = {
+  title: string;
+  src: string;
+  id: number;
+}
+
+export const Offers: FC = () => {
+  const [currentTopOfferId, setCurrentTopOfferId] = useState(1);
+
+  const renderTopOffer = (topOfferId: number) => {
+    const currentTopOffer = offersItems.find((topOffer) => topOffer.id === topOfferId);
+
+    return (
+      <OffersItem
+        src={(currentTopOffer as TCurrentTopOffer).src}
+        title={(currentTopOffer as TCurrentTopOffer).title}
+      />
+    );
+  }
+
+  const getToggleBtnClass = (id: number) => cn('offers__toggle-button', {
+    'offers__toggle-button--current': id === currentTopOfferId,
+  });
+  
+  const handleToggleBtnClick = useCallback((id: number) => setCurrentTopOfferId(id), []);
+
+  return (
+    <section>
+      <h2 className="visually-hidden">Лучшие предложения</h2>
+      {renderTopOffer(currentTopOfferId)}
+      <ul>
+        {offersItems.map((_, index) => (
+          <li>
+            <button
+              className={getToggleBtnClass(index + 1)}
+              type="button"
+              onClick={() => handleToggleBtnClick(index + 1)}
+            />
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
