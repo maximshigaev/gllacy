@@ -15,9 +15,9 @@ export const Advantages: FC = () => (
     <p className="advantages__title">
       Магазин Глэйси — это онлайн- и офлайн-магазин по продаже мороженого собственного производства на развес
     </p>
-    <ul>
+    <ul className="advantages__list">
       {advantagesItems.map(({ id, text }) => (
-        <li key={id}>
+        <li className="advantages__item" key={id}>
           <AdvantagesItem text={text} />
         </li>
       ))}

@@ -4,4 +4,13 @@
     font-weight: 500;
     line-height: 1.25;
   }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    width: 50%;
+  }
 }
