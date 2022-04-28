@@ -1,0 +1,48 @@
+@import '../../styles/variables.scss';
+
+.catalog-dropdown-menu {
+  position: absolute;
+  width: 143px;
+  min-height: 171px;
+  box-shadow: 0px 20px 20px 0 rgba(0, 0, 0, 0.4);
+  background-color: #f8f7f4;
+  border-radius: 5px;
+  top: 27px;
+  left: -7px;
+
+  &__link {
+    display: block;
+    border-radius: 5px;
+    color: $mainTextColor;
+    font-size: 14px;
+    line-height: 1.14;
+    text-align: left;
+    padding: 9px 20px;
+
+    &:hover,
+    &:focus {
+      background-color: #fbded7;
+      border: none;
+    }
+
+    &:active {
+      background-color: #f6b5a5;
+    }
+
+    &--main {
+      font-weight: bold;
+      position: relative;
+      padding: 13px 20px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        right: 6px;
+        left: 6px;
+        background-color: RGBA(0, 0, 0, 0.2);
+        height: 1px;
+        bottom: 0px;
+      }
+    }
+  }
+}

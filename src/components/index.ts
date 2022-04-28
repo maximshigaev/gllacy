@@ -13,3 +13,4 @@ export { Footer } from './Footer/Footer';
 export { PromotionItem } from './PromotionItem/PromotionItem';
 export { AdvantagesItem } from './AdvantagesItem/AdvantagesItem';
 export { OffersItem } from './OffersItem/OffersItem';
+export { CatalogDropdownMenu } from './CatalogDropdownMenu/CatalogDropdownMenu';
