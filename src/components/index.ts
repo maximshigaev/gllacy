@@ -15,3 +15,4 @@ export { AdvantagesItem } from './AdvantagesItem/AdvantagesItem';
 export { OffersItem } from './OffersItem/OffersItem';
 export { CatalogDropdownMenu } from './CatalogDropdownMenu/CatalogDropdownMenu';
 export { HeaderSearchForm } from './HeaderSearchForm/HeaderSearchForm';
+export { HeaderLoginForm } from './HeaderLoginForm/HeaderLoginForm'
