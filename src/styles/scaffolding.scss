@@ -68,4 +68,23 @@ a {
   color: #ffffff;
   box-shadow: 0px 2px 2px 0 rgba(172, 16, 0, 0.64);
   background-image: linear-gradient(to top, #e74a35, #f26843);
+  padding: 10px 25px;
+  border-radius: 25px;
+  font-size: 18px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    box-shadow: 0px 2px 2px 0 #ac1000;
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)),
+      linear-gradient(to top, #e74a35, #f26843);
+  }
+
+  &:active {
+    box-shadow: inset 0px 2px 2px 0 #942718;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.07), rgba(0, 0, 0, 0.07)),
+      linear-gradient(to top, #e74a35, #f26843);
+  }
 }
