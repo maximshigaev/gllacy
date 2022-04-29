@@ -19,6 +19,7 @@ export const Promotions: FC = () => (
             title={title}
             text={text}
             buttonText={buttonText}
+            id={id}
           />
         </li>  
       ))}

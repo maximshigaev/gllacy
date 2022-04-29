@@ -1,9 +1,17 @@
-.promotionItem {
+.promotion-item {
+  width: 560px;
+  height: 229px;
+  padding: 23px 19px;
+  padding-top: 18px;
+  display: flex;
+  flex-direction: column;
+
   &__title {
     font-size: 35px;
     font-weight: bold;
     line-height: 1.17;
     color: #ffffff;
+    margin-bottom: 15px;
   }
 
   &__text {
@@ -11,5 +19,18 @@
     font-weight: bold;
     line-height: 1.22;
     color: #ffffff;
+  }
+
+  &__btn {
+    align-self: end;
+    margin-top: auto;
+  }
+
+  &--1 {
+    background-image: url('../../images/promotion-item-1.png');
+  }
+
+  &--2 {
+    background-image: url('../../images/promotion-item-2.png');
   }
 }
