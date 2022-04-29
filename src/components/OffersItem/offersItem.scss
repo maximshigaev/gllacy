@@ -1,13 +1,26 @@
 .offers-item {
+  position: relative;
+  padding-top: 392px;
+  padding-bottom: 40px;
+
   &__title {
     font-size: 60px;
     font-weight: bold;
     line-height: 1;
-    color: #ffffff
+    color: #ffffff;
+    width: 670px;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 30px;
   }
 
-  &__add-button {
+  &__add-button.button {
     font-size: 32px;
+    width: 280px;
+    height: 64px;
+    border-radius: 35px 35px;
+    display: block;
     font-weight: 700;
+    margin: 0 auto;
   }
 }

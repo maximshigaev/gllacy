@@ -7,6 +7,9 @@ import cn from 'classnames';
 // Components
 import { OffersItem } from '../';
 
+// Styles
+import './offers.scss';
+
 // Constants
 import { offersItems } from '../../constants';
 
@@ -17,7 +20,6 @@ type TProps = {
 
 type TCurrentTopOffer = {
   title: string;
-  src: string;
   id: number;
 }
 
@@ -26,29 +28,27 @@ export const Offers: FC<TProps> = ({ currentTopOfferId, setCurrentTopOfferId }) 
     const currentTopOffer = offersItems.find((topOffer) => topOffer.id === topOfferId);
 
     return (
-      <OffersItem
-        src={(currentTopOffer as TCurrentTopOffer).src}
-        title={(currentTopOffer as TCurrentTopOffer).title}
-      />
+      <OffersItem title={(currentTopOffer as TCurrentTopOffer).title} />
     );
   }
 
-  const getToggleBtnClass = (id: number) => cn('offers__toggle-button', {
-    'offers__toggle-button--current': id === currentTopOfferId,
+  const getToggleBtnClass = (id: number) => cn('offers__toggle-btn', {
+    'offers__toggle-btn--current': id === currentTopOfferId,
   });
   
-  const handleToggleBtnClick = useCallback((id: number) => setCurrentTopOfferId(id), []);
+  const handleToggleBtnClick = useCallback((id: number) => setCurrentTopOfferId(id), [setCurrentTopOfferId]);
 
   return (
-    <section>
+    <section className="offers">
       <h2 className="visually-hidden">Лучшие предложения</h2>
       {renderTopOffer(currentTopOfferId)}
-      <ul>
+      <ul className="offers__toggle-btns-list">
         {offersItems.map((offerItem, index) => (
-          <li key={offerItem.id}>
+          <li className="offers__toggle-btns-item" key={offerItem.id}>
             <button
               className={getToggleBtnClass(index + 1)}
               type="button"
+              title={`${index + 1}й слайд`}
               onClick={() => handleToggleBtnClick(index + 1)}
             />
           </li>

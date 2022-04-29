@@ -50,7 +50,7 @@ export const Header: FC<TProps> = ({ cartItems, deleteCartItem }) => {
   });
 
   return (
-    <header>
+    <header className="header">
       <nav className="header__nav">
         <a href="#">
           <img

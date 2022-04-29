@@ -3,9 +3,6 @@ import offer1 from './images/offer-1.png';
 import offer2 from './images/offer-2.png';
 import offer3 from './images/offer-3.png';
 import offer4 from './images/offer-4.png';
-import topOffer1 from './images/top-offer-1.png';
-import topOffer2 from './images/top-offer-2.png';
-import topOffer3 from './images/top-offer-3.png';
 
 export const assortmentItems = [
   {
@@ -77,16 +74,13 @@ export const offersItems = [
   {
     id: 1,
     title: 'Крем-брюле и пломбир с малиновым джемом',
-    src: topOffer1,
   },
   {
     id: 2,
     title: 'Шоколадный пломбир и лимонный сорбет',
-    src: topOffer2,
   },
   {
     id: 3,
     title: 'Пломбир с помадкой и клубничный щербет',
-    src: topOffer3,
   },
 ];

@@ -31,8 +31,8 @@ export const MainPage: FC<TProps> = ({ cartItems, deleteCartItem }) => {
   const [currentTopOfferId, setCurrentTopOfferId] = useState(1);
   
   return (
-    <div className={`main-page__wrapper main-page__wrapper--${currentTopOfferId}`}>
-      <div className="main-page__container">
+    <div className={`main-page__wrapper main-page__wrapper--slide-${currentTopOfferId}`}>
+      <div className={`main-page__container main-page__container--slide-${currentTopOfferId}`}>
         <Header cartItems={cartItems} deleteCartItem={deleteCartItem} />
         <main>
           <h1 className="visually-hidden">Магазин мороженого Глэйси</h1>

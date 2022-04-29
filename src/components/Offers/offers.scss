@@ -1,0 +1,29 @@
+.offers {
+  position: relative;
+
+  &__toggle-btns-list {
+    display: flex;
+    position: absolute;
+    bottom: 62px;
+    left: 0;
+  }
+
+  &__toggle-btns-item {
+    width: 21px;
+    height: 21px;
+    margin-right: 8px;
+  }
+
+  &__toggle-btn {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border-radius: 50%;
+    border: 1px solid #ffffff;
+    background-color: transparent;
+
+    &--current {
+      background-color: #ffffff;
+    }
+  }
+}
