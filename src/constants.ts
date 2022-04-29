@@ -10,24 +10,28 @@ export const assortmentItems = [
     src: offer1,
     text: 'Сливочное с апельсиновым джемом и цитрусовой стружкой',
     price: 310,
+    isHit: true,
   },
   {
     id: 2,
     src: offer2,
     text: 'Сливочно-кофейное с кусочками шоколада',
     price: 380,
+    isHit: true,
   },
   {
     id: 3,
     src: offer3,
     text: 'Сливочно-клубничное с присыпкой из белого шоколада',
     price: 355,
+    isHit: true,
   },
   {
     id: 4,
     src: offer4,
     text: 'Сливочное крем-брюле с карамельной подливкой',
     price: 415,
+    isHit: true,
   },
 ];
 
