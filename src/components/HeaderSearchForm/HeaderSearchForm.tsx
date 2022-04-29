@@ -21,13 +21,11 @@ export const HeaderSearchForm: FC<TProps> = ({
         onMouseLeave={handleHeaderSearchFormMouseLeave}
         onMouseEnter={handleHeaderSearchFormMouseEnter}
       >
-        <label>
-          <input
-            className="header-search-form__input"
-            placeholder="Что ищем?"
-            type="text"
-          />
-        </label>
+        <input
+          className="header-search-form__input"
+          placeholder="Что ищем?"
+          type="text"
+        />
       </form>
     )}
   </>

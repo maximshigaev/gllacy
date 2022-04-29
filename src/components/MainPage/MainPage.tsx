@@ -19,13 +19,21 @@ import {
 // Styles
 import './mainPage.scss';
 
-export const MainPage: FC = () => {
+// Types
+import { TCartItem } from '../../types';
+
+type TProps = {
+  cartItems: TCartItem[];
+  deleteCartItem: (id: number) => void;
+}
+
+export const MainPage: FC<TProps> = ({ cartItems, deleteCartItem }) => {
   const [currentTopOfferId, setCurrentTopOfferId] = useState(1);
   
   return (
     <div className={`main-page__wrapper main-page__wrapper--${currentTopOfferId}`}>
       <div className="main-page__container">
-        <Header />
+        <Header cartItems={cartItems} deleteCartItem={deleteCartItem} />
         <main>
           <h1 className="visually-hidden">Магазин мороженого Глэйси</h1>
           <Offers currentTopOfferId={currentTopOfferId} setCurrentTopOfferId={setCurrentTopOfferId} />
