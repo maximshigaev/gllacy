@@ -1,11 +1,36 @@
 .subscription-form {
-  width: 50%;
+  width: 560px;
+  background-color: #f8f7f4;
+  border-radius: 10px;
+  background-image: url('../../images/subscription-form-background.png');
+  padding: 34px 27px;
 
   &__text {
     color: #5a5a5a;
+    margin-bottom: 35px;
   }
 
   &__input {
     font: inherit;
+    width: 368px;
+    border-radius: 5px;
+    border: solid 1px rgba(178, 178, 178, 0.52);
+    background-color: #ffffff;
+    padding: 11px 14px;
+
+    &:hover,
+    &:focus {
+      border: 1px solid black;
+    }
+  }
+
+  &__form {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__button.button {
+    padding-right: 18px;
+    padding-left: 18px;
   }
 }

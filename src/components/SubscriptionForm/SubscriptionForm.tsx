@@ -10,14 +10,14 @@ export const SubscriptionForm: FC = () => (
       Подпишитесь на нашу сладкую рассылку и будете всегда в курсе всего самого вкусного, что у нас происходит. Обещаем
       не спамить и не слать всякой ненужной ерунды. Честно =) 
     </p>
-    <form>
+    <form className="subscription-form__form">
       <input
         className="subscription-form__input"
         type="email"
         placeholder="Электронная почта"
       />
       <button
-        className="button"
+        className="button subscription-form__button"
         type="button"
         title="Отправить"
       >
