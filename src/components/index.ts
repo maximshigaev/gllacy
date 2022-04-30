@@ -18,3 +18,4 @@ export { HeaderSearchForm } from './HeaderSearchForm/HeaderSearchForm';
 export { HeaderLoginForm } from './HeaderLoginForm/HeaderLoginForm';
 export { Cart } from './Cart/Cart';
 export { CartItem } from './CartItem/CartItem';
+export { CatalogPage } from './CatalogPage/CatalogPage';

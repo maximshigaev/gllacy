@@ -25,29 +25,27 @@ import { TCartItem } from '../../types';
 type TProps = {
   cartItems: TCartItem[];
   deleteCartItem: (id: number) => void;
+  currentTopOfferId: number;
+  setCurrentTopOfferId: (id: number) => void;
 }
 
-export const MainPage: FC<TProps> = ({ cartItems, deleteCartItem }) => {
-  const [currentTopOfferId, setCurrentTopOfferId] = useState(1);
-  
-  return (
-    <div className={`main-page__wrapper main-page__wrapper--slide-${currentTopOfferId}`}>
-      <div className={`main-page__container main-page__container--slide-${currentTopOfferId}`}>
-        <Header cartItems={cartItems} deleteCartItem={deleteCartItem} />
-        <main>
-          <h1 className="visually-hidden">Магазин мороженого Глэйси</h1>
-          <Offers currentTopOfferId={currentTopOfferId} setCurrentTopOfferId={setCurrentTopOfferId} />
-          <Promotions />
-          <Assortment />
-          <Advantages />
-          <div className="main-page__columns-wrapper">
-            <News />
-            <SubscriptionForm />
-          </div>
-          <Contacts />
-        </main>
-        <Footer />
-      </div>
+export const MainPage: FC<TProps> = ({ cartItems, deleteCartItem , currentTopOfferId, setCurrentTopOfferId}) => (
+  <div className={`page__wrapper page__wrapper--slide-${currentTopOfferId}`}>
+    <div className={`page__container page__container--slide-${currentTopOfferId}`}>
+      <Header cartItems={cartItems} deleteCartItem={deleteCartItem} />
+      <main>
+        <h1 className="visually-hidden">Магазин мороженого Глэйси</h1>
+        <Offers currentTopOfferId={currentTopOfferId} setCurrentTopOfferId={setCurrentTopOfferId} />
+        <Promotions />
+        <Assortment />
+        <Advantages />
+        <div className="main-page__columns-wrapper">
+          <News />
+          <SubscriptionForm />
+        </div>
+        <Contacts />
+      </main>
+      <Footer />
     </div>
-  );
-}
+  </div>
+);

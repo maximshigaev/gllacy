@@ -88,3 +88,8 @@ export const offersItems = [
     title: 'Пломбир с помадкой и клубничный щербет',
   },
 ];
+
+export const routes = {
+  mainPage: '/',
+  catalogPage: '/catalog',
+}

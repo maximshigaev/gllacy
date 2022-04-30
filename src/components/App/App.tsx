@@ -9,7 +9,10 @@ import {
 } from 'react-router-dom';
 
 // Components
-import { MainPage } from '../';
+import {
+  MainPage,
+  CatalogPage,
+} from '../';
 
 // Images
 import cartIconItem1 from '../../images/icecream-icon-1.png';
@@ -19,6 +22,8 @@ import cartIconItem2 from '../../images/icecream-icon-2.png';
 import { TCartItem } from '../../types';
 
 export const App: FC = () => {
+  const [currentTopOfferId, setCurrentTopOfferId] = useState(1);
+
   const [cartItems, setCartItems] = useState<TCartItem[]>([
     {
       id: 1,
@@ -54,6 +59,19 @@ export const App: FC = () => {
           <MainPage
             cartItems={cartItems}
             deleteCartItem={deleteCartItem}
+            currentTopOfferId={currentTopOfferId}
+            setCurrentTopOfferId={setCurrentTopOfferId}
+          />
+        }
+      />
+      <Route
+        path={`/catalog`}
+        element={
+          <CatalogPage
+            cartItems={cartItems}
+            deleteCartItem={deleteCartItem}
+            currentTopOfferId={currentTopOfferId}
+            setCurrentTopOfferId={setCurrentTopOfferId}
           />
         }
       />

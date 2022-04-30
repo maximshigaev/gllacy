@@ -34,6 +34,15 @@
       height: 1px;
       bottom: 7px;
     }
+
+    &--current {
+      background-color: #d07058;
+      border-radius: 25px;
+
+      &::before {
+        display: none;
+      }
+    }
   }
 
   &__nav-item {

@@ -4,6 +4,10 @@ import {
   useCallback,
 } from 'react';
 import cn from 'classnames';
+import {
+  Link,
+  useLocation,
+} from 'react-router-dom';
 
 // Components
 import {
@@ -25,6 +29,9 @@ import { TCartItem } from '../../types';
 // Helpers
 import { getCartItemsEnding } from '../../helpers';
 
+// Constants
+import { routes } from '../../constants';
+
 type TProps = {
   cartItems: TCartItem[];
   deleteCartItem: (id: number) => void;
@@ -45,14 +52,20 @@ export const Header: FC<TProps> = ({ cartItems, deleteCartItem }) => {
   const handleCartMouseEnter = useCallback(() => setIsCartVisible(true), []);
   const handleCartMouseLeave = useCallback(() => setIsCartVisible(false), []);
 
+  const { pathname: path } = useLocation();
+
   const cartLinkClass = cn('header__cart-link', {
     'header__cart-link--filled': !!cartItems.length,
+  });
+
+  const catalogLinkClass = cn('header__nav-link', {
+    'header__nav-link--current': path === routes.catalogPage,
   });
 
   return (
     <header className="header">
       <nav className="header__nav">
-        <a href="#">
+        <Link to={(path !== routes.mainPage) ? routes.mainPage : '#'}>
           <img
             className="header__logo"
             src={logo}
@@ -61,18 +74,18 @@ export const Header: FC<TProps> = ({ cartItems, deleteCartItem }) => {
             width="154"
             height="62"
           />
-        </a>
+        </Link>
         <ul className="header__nav-links">
           <li className="header__nav-item">
-            <a
-              className="header__nav-link"
+            <Link
+              className={catalogLinkClass}
               title="Каталог"
-              href="#"
+              to={routes.catalogPage}
               onMouseEnter={handleCatalogLinkMouseEnter}
               onMouseLeave={handleCatalogLinkMouseLeave}
             >
               Каталог
-            </a>
+            </Link>
             <CatalogDropdownMenu
               isVisible={isCatalogDropdownMenuVisible}
               handleCatalogLinkMouseEnter={handleCatalogLinkMouseEnter}

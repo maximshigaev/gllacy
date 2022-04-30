@@ -1,42 +1,6 @@
 @import '../../styles/variables.scss';
 
 .main-page {
-  &__container {
-    width: 1145px;
-    margin: 0 auto;
-    position: relative;
-    background-position: 50px 0px;
-
-    &--slide-1 {
-      background-image: url('../../images/top-offer-1.png');
-      background-repeat: no-repeat;
-    }
-
-    &--slide-2 {
-      background-image: url('../../images/top-offer-2.png');
-      background-repeat: no-repeat;
-    }
-
-    &--slide-3 {
-      background-image: url('../../images/top-offer-3.png');
-      background-repeat: no-repeat;
-    }
-  }
-
-  &__wrapper {
-    &--slide-1 {
-      background-color: $mainBackgroundColor1;
-    }
-
-    &--slide-2 {
-      background-color: $mainBackgroundColor2;
-    }
-
-    &--slide-3 {
-      background-color: $mainBackgroundColor3;
-    }
-  }
-
   &__columns-wrapper {
     display: flex;
     justify-content: space-between;
