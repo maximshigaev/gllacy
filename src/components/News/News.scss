@@ -1,14 +1,33 @@
+@import '../../styles/variables.scss';
+
 .news {
   width: 50%;
+  padding: 23px 20px;
+  background-image: url('../../images/news-background.png');
+  width: 560px;
+  min-height: 220px;
 
   &__title {
     font-weight: 500;
+    margin-bottom: 4px;
   }
 
-  &__heading {
+  &__link {
     font-size: 24px;
     font-weight: bold;
+    width: 281px;
+    display: inline-block;
     text-decoration: underline;
     line-height: 1.25;
+    color: $mainTextColor;
+
+    &:hover,
+    &:focus {
+      opacity: 0.5;
+    }
+
+    &:active {
+      opacity: 0.2;
+    }
   }
 }

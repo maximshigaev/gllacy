@@ -6,8 +6,8 @@ import './news.scss';
 export const News: FC = () => (
   <article className="news">
     <h2 className="news__title">Новое в нашем блоге</h2>
-    <h3 className="news__heading">
+    <a className="news__link" href="#">
       10 способов сервировки фруктовых щербетов к столу
-    </h3>
+    </a>
   </article>
 );
