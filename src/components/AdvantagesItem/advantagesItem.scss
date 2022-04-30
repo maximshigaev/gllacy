@@ -1,0 +1,39 @@
+.advantages-item {
+  width: 538px;
+  padding-left: 56px;
+  position: relative;
+  padding-top: 22px;
+
+  &::before {
+    position: absolute;
+    content: '';
+    top: 8px;
+    left: 0;
+    width: 49px;
+    height: 49px;
+  }
+
+  &--1 {
+    &::before {
+      background-image: url('../../images/advantages-icon-1.png');
+    }
+  }
+
+  &--2 {
+    &::before {
+      background-image: url('../../images/advantages-icon-2.png');
+    }
+  }
+
+  &--3 {
+    &::before {
+      background-image: url('../../images/advantages-icon-3.png');
+    }
+  }
+
+  &--4 {
+    &::before {
+      background-image: url('../../images/advantages-icon-4.png');
+    }
+  }
+}

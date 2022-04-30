@@ -1,16 +1,19 @@
 .advantages {
+  min-height: 306px;
+  background-image: url('../../images/advantages-background.png');
+  padding: 25px 19px;
+  background-repeat: no-repeat;
+
   &__title {
     font-size: 24px;
     font-weight: 500;
     line-height: 1.25;
+    letter-spacing: 0.15px;
   }
 
   &__list {
     display: flex;
     flex-wrap: wrap;
-  }
-
-  &__item {
-    width: 50%;
+    justify-content: space-between;
   }
 }
