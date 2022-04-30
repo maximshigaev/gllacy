@@ -1,7 +1,23 @@
 .contacts {
+  position: relative;
+  min-height: 430px;
+
+  &__wrapper {
+    position: absolute;
+    top: 63px;
+    right: 0;
+    width: 302px;
+    height: 305px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 29px 25px;
+  }
+
   &__text {
     font-size: 14px;
+    width: 150px;
     line-height: 1.43;
+    margin-bottom: 2px;
   }
 
   &__address,
@@ -9,5 +25,45 @@
     font-size: 18px;
     font-weight: bold;
     line-height: 1.33;
+  }
+
+  &__address {
+    margin-bottom: 17px;
+  }
+
+  &__info {
+    font-size: 14px;
+    line-height: 1.43;
+    margin-bottom: 5px;
+  }
+
+  &__time {
+    font-size: 14px;
+    margin-bottom: 26px;
+  }
+
+  &__map {
+    position: absolute;
+    top: 0;
+    height: 500px;
+    width: 1250px;
+    left: 50%;
+    transform: translate(-50%);
+    height: 430px;
+  }
+
+  &__button.button {
+    width: 100%;
+  }
+
+  &::before {
+    position: absolute;
+    content: '';
+    width: 80px;
+    height: 140px;
+    top: 139px;
+    z-index: 1;
+    left: 239px;
+    background-image: url('../../images/pin-icon.png');
   }
 }
