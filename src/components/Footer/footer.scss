@@ -1,10 +1,104 @@
 .footer {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 18px;
+  padding-bottom: 62px;
+
+  &__social-list {
+    width: 185px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 18px;
+  }
+
+  &__social-item {
+    width: 38px;
+    height: 38px;
+  }
+
+  &__social-link {
+    width: 38px;
+    display: inline-block;
+    height: 38px;
+    background-repeat: no-repeat;
+    background-position: -1px -1px;
+    border: 4px solid rgb(194, 206, 199);
+    border-radius: 50%;
+
+    &:hover,
+    &:focus {
+      opacity: 0.5;
+    }
+
+    &:active {
+      opacity: 0.2;
+    }
+
+    &--twitter {
+      background-image: url('../../images/twitter-icon.png');
+    }
+
+    &--instagram {
+      background-image: url('../../images/instagram-icon.png');
+    }
+
+    &--facebook {
+      background-image: url('../../images/facebook-icon.png');
+    }
+
+    &--vk {
+      background-image: url('../../images/vk-icon.png');
+    }
+  }
+
+  &__info-item {
+    min-width: 162px;
+  }
+
+  &__info-links {
+    display: flex;
+    flex-wrap: wrap;
+    width: 324px;
+    margin-top: 12px;
+  }
+
   &__info-link {
     font-size: 13px;
     color: #ffffff;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      right: 0;
+      left: 0;
+      background-color: RGBA(255, 255, 255, 0.2);
+      height: 1px;
+      bottom: -1px;
+    }
 
     &--suppliers {
       font-weight: bold;
+
+      &:after {
+        position: absolute;
+        content: '';
+        width: 15px;
+        height: 13px;
+        left: -22px;
+        top: 4px;
+        background-image: url('../../images/heart-icon.png');
+      }
+    }
+
+    &:hover,
+    &:focus {
+      opacity: 0.5;
+    }
+
+    &:active {
+      opacity: 0.2;
     }
   }
 
@@ -16,5 +110,47 @@
 
   &__copyright-link {
     color: #fefefe;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      right: 0;
+      left: 0;
+      background-color: RGBA(255, 255, 255, 0.2);
+      height: 1px;
+      bottom: -1px;
+    }
+
+    &:hover,
+    &:focus {
+      opacity: 0.5;
+    }
+
+    &:active {
+      opacity: 0.2;
+    }
+  }
+
+  &__copyright-logo {
+    background-image: url('../../images/htmlacademy-logo.png');
+    width: 108px;
+    height: 39px;
+    display: block;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      opacity: 0.5;
+    }
+
+    &:active {
+      opacity: 0.2;
+    }
+  }
+
+  &__info-links {
+    display: flex;
+    flex-wrap: wrap;
   }
 }
