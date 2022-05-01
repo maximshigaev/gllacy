@@ -1,0 +1,45 @@
+@import '../../styles/mixins.scss';
+
+.catalog-page {
+  &__breadcrumbs {
+    display: flex;
+    margin-top: -22px;
+  }
+
+  &__breadcrumbs-link {
+    font-size: 14px;
+    line-height: 1.14;
+    color: #ffffff;
+    margin-right: 21px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+    &--current {
+      border-bottom: none;
+    }
+  }
+
+  &__breadcrumb {
+    &:not(:last-child) {
+      position: relative;
+
+      @include defaultHover;
+
+      &::before {
+        position: absolute;
+        content: '»';
+        right: 4px;
+        width: 10px;
+        height: 10px;
+        color: #ffffff;
+      }
+    }
+  }
+
+  &__title {
+    font-size: 35px;
+    font-weight: bold;
+    line-height: 1.17;
+    color: #fff;
+    margin-top: 2px;
+  }
+}

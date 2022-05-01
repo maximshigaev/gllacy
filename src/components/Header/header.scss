@@ -28,7 +28,7 @@
       position: absolute;
       right: 13px;
       left: 13px;
-      background-color: RGBA(255, 255, 255, 0.2);
+      background-color: rgba(255, 255, 255, 0.2);
       height: 1px;
       bottom: 7px;
     }
@@ -162,6 +162,7 @@
     display: flex;
     padding-top: 17px;
     padding-left: 9px;
+    align-items: flex-start;
   }
 
   &__cart-links {
