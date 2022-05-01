@@ -1,3 +1,5 @@
+@import '../../styles/mixins.scss';
+
 .cart-item {
   position: relative;
   padding-left: 20px;
@@ -15,14 +17,7 @@
     cursor: pointer;
     padding: 0;
 
-    &:hover,
-    &:focus {
-      opacity: 0.5;
-    }
-
-    &:active {
-      opacity: 0.2;
-    }
+    @include defaultHover;
 
     &::before,
     &::after {

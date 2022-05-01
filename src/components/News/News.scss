@@ -1,4 +1,5 @@
 @import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
 
 .news {
   width: 50%;
@@ -21,13 +22,6 @@
     line-height: 1.25;
     color: $mainTextColor;
 
-    &:hover,
-    &:focus {
-      opacity: 0.5;
-    }
-
-    &:active {
-      opacity: 0.2;
-    }
+    @include defaultHover;
   }
 }

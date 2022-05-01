@@ -1,0 +1,11 @@
+@mixin defaultHover() {
+
+  &:hover,
+  &:focus {
+    opacity: 0.5;
+  }
+
+  &:active {
+    opacity: 0.2;
+  }
+}

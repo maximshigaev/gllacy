@@ -1,4 +1,5 @@
 @import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
 
 .header-login-form {
   position: absolute;
@@ -43,14 +44,7 @@
     color: $mainTextColor;
     border-bottom: 1px solid $mainTextColor;
 
-    &:hover,
-    &:focus {
-      opacity: 0.5;
-    }
-
-    &:active {
-      opacity: 0.2;
-    }
+    @include defaultHover;
   }
 
   &__wrapper {

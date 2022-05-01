@@ -1,3 +1,5 @@
+@import '../../styles/mixins.scss';
+
 .header {
   padding-top: 10px;
 
@@ -148,14 +150,7 @@
     width: 154px;
     height: 62px;
 
-    &:hover,
-    &:focus {
-      opacity: 0.5;
-    }
-
-    &:active {
-      opacity: 0.2;
-    }
+    @include defaultHover;
   }
 
   &__nav {
