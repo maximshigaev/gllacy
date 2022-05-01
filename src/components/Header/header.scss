@@ -1,9 +1,5 @@
 .header {
-  position: absolute;
-  top: 10px;
-  z-index: 2;
-  right: 0;
-  left: 0;
+  padding-top: 10px;
 
   &__nav-link {
     font-weight: 700;
@@ -151,6 +147,15 @@
   &__logo {
     width: 154px;
     height: 62px;
+
+    &:hover,
+    &:focus {
+      opacity: 0.5;
+    }
+
+    &:active {
+      opacity: 0.2;
+    }
   }
 
   &__nav {

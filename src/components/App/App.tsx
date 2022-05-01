@@ -21,6 +21,9 @@ import cartIconItem2 from '../../images/icecream-icon-2.png';
 // Types
 import { TCartItem } from '../../types';
 
+// Constants
+import { routes } from '../../constants';
+
 export const App: FC = () => {
   const [currentTopOfferId, setCurrentTopOfferId] = useState(1);
 
@@ -54,7 +57,7 @@ export const App: FC = () => {
   return (
     <Routes>
       <Route
-        path={`/`}
+        path={routes.mainPage}
         element={
           <MainPage
             cartItems={cartItems}
@@ -65,13 +68,12 @@ export const App: FC = () => {
         }
       />
       <Route
-        path={`/catalog`}
+        path={routes.catalogPage}
         element={
           <CatalogPage
             cartItems={cartItems}
             deleteCartItem={deleteCartItem}
             currentTopOfferId={currentTopOfferId}
-            setCurrentTopOfferId={setCurrentTopOfferId}
           />
         }
       />
