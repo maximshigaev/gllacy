@@ -93,3 +93,11 @@ export const routes = {
   mainPage: '/',
   catalogPage: '/catalog',
 }
+
+export const sortingFilterOptions = [
+  'По цене',
+];
+
+export const filterTypes = {
+  sorting: 'sorting',
+}

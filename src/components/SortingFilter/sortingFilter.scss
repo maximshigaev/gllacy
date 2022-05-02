@@ -1,0 +1,63 @@
+@import '../../styles/mixins.scss';
+
+.sorting-filter {
+  margin-top: 26px;
+
+  &__title {
+    font-size: 14px;
+    font-weight: 500;
+    padding-left: 17px;
+    line-height: 1.14;
+    color: #ffffff;
+  }
+
+  &__dropdown {
+    position: absolute;
+    top: 42px;
+    width: 194px;
+    left: 0;
+    border-radius: 20px;
+    background-color: #9db1a5;
+  }
+
+  &__dropdown-item {
+    padding: 5px 10px;
+    text-align: center;
+    cursor: pointer;
+
+    @include defaultHover;
+  }
+
+  &__container {
+    font-weight: 500;
+    line-height: 1.13;
+    font-size: 16px;
+    background-color: #9db1a5;
+    padding: 11px 14px;
+    color: #ffffff;
+    border-radius: 20px;
+    position: relative;
+    width: 194px;
+    margin-top: 6px;
+    height: 37px;
+  }
+
+  &__btn {
+    position: absolute;
+    top: 15px;
+    right: 13px;
+    width: 11px;
+    height: 10px;
+    background-image: url('../../images/sort-arrow-icon.png');
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    cursor: pointer;
+
+    @include defaultHover;
+
+    &--up {
+      transform: rotate(180deg);
+    }
+  }
+}
