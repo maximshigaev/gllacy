@@ -101,3 +101,5 @@ export const sortingFilterOptions = [
 export const filterTypes = {
   sorting: 'sorting',
 }
+
+export const MAXIMUM_PRICE = 714;

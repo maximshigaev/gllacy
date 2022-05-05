@@ -22,7 +22,7 @@ type TProps = {
 }
 
 export const CatalogPage: FC<TProps> = ({ cartItems, deleteCartItem, currentTopOfferId }) => (
-  <div className={`page__wrapper page__wrapper--slide-${currentTopOfferId}`}>
+  <div className={`page__wrapper page__wrapper--catalog page__wrapper--slide-${currentTopOfferId}`}>
     <div className="page__container">
       <Header cartItems={cartItems} deleteCartItem={deleteCartItem} />
       <main>

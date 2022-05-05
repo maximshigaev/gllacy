@@ -20,3 +20,4 @@ export { Cart } from './Cart/Cart';
 export { CartItem } from './CartItem/CartItem';
 export { CatalogPage } from './CatalogPage/CatalogPage';
 export { SortingFilter } from './SortingFilter/SortingFilter';
+export { PriceFilter } from './PriceFilter/PriceFilter';

@@ -45,7 +45,7 @@ export const SortingFilter: FC<TProps> = ({ currentSorting, handleFilterChange }
   });
 
   return (
-    <div>
+    <div className="sorting-filter">
       <p className="sorting-filter__title">Сортировка:</p>
       <div className="sorting-filter__container">
         {currentSorting}
@@ -57,9 +57,10 @@ export const SortingFilter: FC<TProps> = ({ currentSorting, handleFilterChange }
         />
         {isSortDropdownOpened && (
           <ul className="sorting-filter__dropdown">
-            {availableOptions.map((availableOption) => (
+            {availableOptions.map((availableOption, index) => (
               <li
                 className="sorting-filter__dropdown-item"
+                key={index}
                 onClick={() => handleDropdownItemClick(availableOption)}
               >
                 {availableOption}
