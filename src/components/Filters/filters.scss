@@ -5,4 +5,19 @@
     display: flex;
     flex-wrap: wrap;
   }
+
+  &__btn {
+    width: 144px;
+    height: 37px;
+    // margin: 8px 19px 40px 13px;
+    // padding: 12px 29px 9px 31px;
+    border: solid 2px #fff;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    background-color: #9db1a5;
+    color: #ffffff;
+    align-self: end;
+  }
 }

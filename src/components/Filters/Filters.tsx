@@ -55,6 +55,7 @@ export const Filters: FC = () => {
           currentFillers={currentFilters.fillers}
           handleFilterChange={handleFilterChange}
         />
+        <button className="filters__btn" title="Применить">Применить</button>
       </form>
     </div>
   );
