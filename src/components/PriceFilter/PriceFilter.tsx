@@ -160,7 +160,7 @@ export const PriceFilter: FC<TProps> = ({ currentPrice, handleFilterChange }) =>
   }
 
   return (
-    <div>
+    <div className="price-filter">
       <p className="price-filter__title">
         Цена: {Math.round(MAXIMUM_PRICE * currentPrice.min / 100)} руб.
         - {Math.round(MAXIMUM_PRICE * currentPrice.max / 100)} руб.

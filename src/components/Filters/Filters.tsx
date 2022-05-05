@@ -8,6 +8,7 @@ import {
 import {
   SortingFilter,
   PriceFilter,
+  FatnessFilter,
 } from '../';
 
 // Styles
@@ -19,7 +20,8 @@ export const Filters: FC = () => {
     price: {
       min: 14,
       max: 70,
-    }
+    },
+    fatness: 'до 10%',
   });
 
   const handleFilterChange = useCallback((key: string, value: string | { min: number, max: number }) => {
@@ -38,6 +40,10 @@ export const Filters: FC = () => {
         />
         <PriceFilter
           currentPrice={currentFilters.price}
+          handleFilterChange={handleFilterChange}
+        />
+        <FatnessFilter
+          currentFatness={currentFilters.fatness}
           handleFilterChange={handleFilterChange}
         />
       </form>

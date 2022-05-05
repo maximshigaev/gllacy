@@ -1,0 +1,61 @@
+.fatness-filter {
+  &__title {
+    font-size: 14px;
+    font-weight: 500;
+    padding-left: 17px;
+    line-height: 1.14;
+    color: #ffffff;
+  }
+
+  &__container {
+    font-weight: 500;
+    line-height: 1.13;
+    background-color: #9db1a5;
+    padding: 11px 12px;
+    color: #ffffff;
+    border-radius: 20px;
+    position: relative;
+    width: 415px;
+    margin-top: 6px;
+    height: 37px;
+  }
+
+  &__label {
+    position: relative;
+    padding-left: 34px;
+    padding-right: 14px;
+    cursor: pointer;
+
+    &:last-child {
+      padding-right: 0;
+    }
+
+    &::before {
+      position: absolute;
+      content: '';
+      width: 22px;
+      height: 22px;
+      top: -3px;
+      left: 2px;
+      border-radius: 50%;
+      border: 3px solid #ffffff;
+    }
+  }
+
+  &__input {
+    display: none;
+
+    &:checked+.fatness-filter__label {
+      &::after {
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        content: '';
+        top: 3px;
+        border-radius: 50%;
+        left: 8px;
+        background-color: #ffffff;
+      }
+    }
+  }
+}
