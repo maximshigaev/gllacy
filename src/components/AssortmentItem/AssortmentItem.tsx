@@ -8,7 +8,7 @@ type TProps = {
   src: string;
   text: string;
   price: number;
-  isHit: boolean;
+  isHit?: boolean;
 }
 
 export const AssortmentItem: FC<TProps> = ({ src, text, price, isHit }) => {

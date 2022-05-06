@@ -1,0 +1,10 @@
+.catalog {
+  margin-top: 40px;
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: 26px;
+    grid-row-gap: 38px;
+  }
+}

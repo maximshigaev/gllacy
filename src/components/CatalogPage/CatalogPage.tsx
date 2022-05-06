@@ -4,6 +4,7 @@ import { FC } from 'react';
 import {
   Header,
   Filters,
+  Catalog,
 } from '../';
 
 // Styles
@@ -58,6 +59,7 @@ export const CatalogPage: FC<TProps> = ({ cartItems, deleteCartItem, currentTopO
         </ul>
         <h2 className="catalog-page__title">Сливочное мороженое</h2>
         <Filters />
+        <Catalog />
       </main>
     </div>
   </div>

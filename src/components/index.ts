@@ -24,3 +24,4 @@ export { PriceFilter } from './PriceFilter/PriceFilter';
 export { Filters } from './Filters/Filters';
 export { FatnessFilter } from './FatnessFilter/FatnessFilter';
 export { FillersFilter } from './FillersFilter/FillersFilter';
+export { Catalog } from './Catalog/Catalog';

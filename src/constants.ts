@@ -3,6 +3,18 @@ import offer1 from './images/offer-1.png';
 import offer2 from './images/offer-2.png';
 import offer3 from './images/offer-3.png';
 import offer4 from './images/offer-4.png';
+import catalogItem1 from './images/catalog-item-1.png';
+import catalogItem2 from './images/catalog-item-2.png';
+import catalogItem3 from './images/catalog-item-3.png';
+import catalogItem4 from './images/catalog-item-4.png';
+import catalogItem5 from './images/catalog-item-5.png';
+import catalogItem6 from './images/catalog-item-6.png';
+import catalogItem7 from './images/catalog-item-7.png';
+import catalogItem8 from './images/catalog-item-8.png';
+import catalogItem9 from './images/catalog-item-9.png';
+import catalogItem10 from './images/catalog-item-10.png';
+import catalogItem11 from './images/catalog-item-11.png';
+import catalogItem12 from './images/catalog-item-12.png';
 
 export const assortmentItems = [
   {
@@ -103,3 +115,102 @@ export const filterTypes = {
 }
 
 export const MAXIMUM_PRICE = 714;
+
+export const catalogItems = [
+  {
+    id: 1,
+    price: 310,
+    src: catalogItem1,
+    text: 'Сливочное с апельсиновым джемом и цитрусовой стружкой',
+    fatness: 11,
+    filler: 'choco',
+  },
+  {
+    id: 2,
+    price: 380,
+    src: catalogItem2,
+    text: 'Сливочно-кофейное с кусочками шоколада',
+    fatness: 0,
+    filler: 'fruits',
+  },
+  {
+    id: 3,
+    price: 355,
+    src: catalogItem3,
+    text: 'Сливочно-клубничное с присыпкой из белого шоколада',
+    fatness: 4,
+    filler: 'jams',
+  },
+  {
+    id: 4,
+    price: 415,
+    src: catalogItem4,
+    text: 'Сливочное крем-брюле с карамельной подливкой',
+    fatness: 36,
+    filler: 'sugar',
+  },
+  {
+    id: 5,
+    price: 325,
+    src: catalogItem5,
+    text: 'Сливочное с брусничным джемом',
+    fatness: 38,
+    filler: 'surups',
+  },
+  {
+    id: 6,
+    price: 410,
+    src: catalogItem6,
+    text: 'Сливочно-черничное с цельными ягодами черники ',
+    fatness: 0,
+    filler: 'fruits',
+  },
+  {
+    id: 7,
+    price: 375,
+    src: catalogItem7,
+    text: 'Сливочно-лимонное с карамельной присыпкой',
+    fatness: 7,
+    filler: 'jams',
+  },
+  {
+    id: 8,
+    price: 320,
+    src: catalogItem8,
+    text: 'Сливочное с шоколадной стружкой',
+    fatness: 19,
+    filler: 'choco',
+  },
+  {
+    id: 9,
+    price: 440,
+    src: catalogItem9,
+    text: 'Сливочно-ванильное с кусочками шоколада',
+    fatness: 28,
+    filler: 'fruits',
+  },
+  {
+    id: 10,
+    price: 435,
+    src: catalogItem10,
+    text: 'Сливочноe с ментоловым сиропом',
+    fatness: 40,
+    filler: 'sugar',
+  },
+    {
+    id: 11,
+    price: 355,
+    src: catalogItem11,
+    text: 'Сливочное с кусочками черного шоколада',
+    fatness: 0,
+    filler: 'syrups',
+  },
+  {
+    id: 12,
+    price: 420,
+    src: catalogItem12,
+    text: 'Сливочное с мятным сиропом',
+    fatness: 3,
+    filler: 'jams',
+  },
+];
