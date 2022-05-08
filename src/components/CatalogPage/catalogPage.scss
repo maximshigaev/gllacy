@@ -1,6 +1,11 @@
 @import '../../styles/mixins.scss';
 
 .catalog-page {
+  &__main {
+    display: flex;
+    flex-direction: column;
+  }
+
   &__breadcrumbs {
     display: flex;
     margin-top: -22px;
@@ -41,5 +46,57 @@
     line-height: 1.17;
     color: #fff;
     margin-top: 2px;
+  }
+
+  &__pagination {
+    display: flex;
+    align-self: flex-end;
+    height: 26px;
+    align-items: center;
+  }
+
+  &__pagination-list {
+    display: flex;
+  }
+
+  &__pagination-btn {
+    color: #ffffff;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    width: 26px;
+    height: 26px;
+    font-size: 16px;
+    margin-right: 1px;
+    margin-left: 1px;
+
+    &--current {
+      border-radius: 50%;
+      background-color: #ffffff;
+      color: #000000;
+    }
+  }
+
+  &__btn {
+    width: 8px;
+    padding: 0;
+    border: none;
+    height: 12px;
+    background-color: transparent;
+    cursor: pointer;
+
+    &--prev {
+      background-image: url('../../images/prev-arrow-icon.png');
+      margin-right: 18px;
+    }
+
+    &--next {
+      background-image: url('../../images/next-arrow-icon.png');
+      margin-left: 18px;
+    }
+
+    &:disabled {
+      opacity: 0.2;
+    }
   }
 }

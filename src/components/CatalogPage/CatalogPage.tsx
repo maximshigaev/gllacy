@@ -4,6 +4,7 @@ import {
   useCallback,
   useEffect,
 } from 'react';
+import cn from 'classnames';
 
 // Components
 import {
@@ -25,10 +26,14 @@ import {
 import {
   routes,
   catalogItems,
+  CATALOG_PAGE_SIZE,
 } from '../../constants';
 
 // Helpers
-import { getRenderedCatalogItems } from '../../helpers';
+import {
+  getRenderedCatalogItems,
+  getNumberOfPages,
+} from '../../helpers';
 
 type TProps = {
   cartItems: TCartItem[];
@@ -38,6 +43,8 @@ type TProps = {
 
 export const CatalogPage: FC<TProps> = ({ cartItems, deleteCartItem, currentTopOfferId }) => {
   const [renderedCatalogItems, setRenderedCatalogItems] = useState([...catalogItems]);
+  const [currentPage, setCurrentPage] = useState(1);
+
   const [currentFilters, setCurrentFilters] = useState({
     sorting: 'По популярности',
     price: {
@@ -55,7 +62,7 @@ export const CatalogPage: FC<TProps> = ({ cartItems, deleteCartItem, currentTopO
   });
 
   useEffect(() => {
-    const newRenderedCatalogItems = getRenderedCatalogItems(catalogItems, currentFilters, currentFilters.sorting);
+    const newRenderedCatalogItems = getRenderedCatalogItems(catalogItems, currentFilters, currentFilters.sorting);    
     setRenderedCatalogItems(newRenderedCatalogItems);
   }, [currentFilters]);
 
@@ -64,13 +71,25 @@ export const CatalogPage: FC<TProps> = ({ cartItems, deleteCartItem, currentTopO
 
     const newRenderedCatalogItems = getRenderedCatalogItems(catalogItems, newFilters, newFilters.sorting);
     setRenderedCatalogItems(newRenderedCatalogItems);
+    setCurrentPage(1);
   }, []);
+
+  const handlePaginationBtnClick = useCallback((currentPage: number) => setCurrentPage(currentPage), []);
+
+  const getPaginationBtnClass = (pageNumber: number) => cn('catalog-page__pagination-btn', {
+    'catalog-page__pagination-btn--current': pageNumber === currentPage,
+  });
+
+  const handlePrevBtnClick = useCallback(() => setCurrentPage(currentPage - 1), [currentPage]);
+  const handleNextBtnClick = useCallback(() => setCurrentPage(currentPage + 1), [currentPage]);
+
+  const numberOfPages = getNumberOfPages(renderedCatalogItems);
 
   return (
     <div className={`page__wrapper page__wrapper--catalog page__wrapper--slide-${currentTopOfferId}`}>
       <div className="page__container">
         <Header cartItems={cartItems} deleteCartItem={deleteCartItem} />
-        <main>
+        <main className="catalog-page__main">
           <h1 className="visually-hidden">Каталог продукции</h1>
           <ul className="catalog-page__breadcrumbs">
             <li className="catalog-page__breadcrumb">
@@ -103,7 +122,37 @@ export const CatalogPage: FC<TProps> = ({ cartItems, deleteCartItem, currentTopO
           </ul>
           <h2 className="catalog-page__title">Сливочное мороженое</h2>
           <Filters handleApplyBtnClick={handleApplyBtnClick} />
-          <Catalog catalogItems={renderedCatalogItems} />
+          <Catalog catalogItems={renderedCatalogItems
+            .slice((currentPage - 1) * CATALOG_PAGE_SIZE, currentPage * CATALOG_PAGE_SIZE)}
+          />
+          {(numberOfPages > 1) && (
+            <div className="catalog-page__pagination">
+              <button
+                className="catalog-page__btn catalog-page__btn--prev"
+                title="Предыдущая страница"
+                disabled={currentPage === 1}
+                onClick={handlePrevBtnClick}
+              />
+              <ul className="catalog-page__pagination-list">
+                {new Array(numberOfPages).fill('').map((_, index) => (
+                  <li key={index}>
+                    <button
+                      className={getPaginationBtnClass(index + 1)}
+                      onClick={() => handlePaginationBtnClick(index + 1)}
+                    >
+                      {index + 1}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+              <button
+                className="catalog-page__btn catalog-page__btn--next"
+                title="Следующая страница"
+                disabled={currentPage === numberOfPages}
+                onClick={handleNextBtnClick}
+              />
+            </div>
+          )}
         </main>
       </div>
     </div>

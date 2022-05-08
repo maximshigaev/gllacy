@@ -5,6 +5,7 @@ import {
   MAXIMUM_PRICE,
   labelToFillerMap,
   labelToSortingMap,
+  CATALOG_PAGE_SIZE,
 } from './constants';
 
 // Types
@@ -88,3 +89,6 @@ export const getFilteredItems = (
 
   return result;
 }
+
+export const getNumberOfPages
+  = (renderedCatalogItems: TCatalogItem[]) => Math.ceil(renderedCatalogItems.length / CATALOG_PAGE_SIZE);
