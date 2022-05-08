@@ -6,6 +6,9 @@ import {
 // Styles
 import './fatnessFilter.scss';
 
+// Constants
+import { filterTypes } from '../../constants';
+
 type TProps = {
   currentFatness: string;
   handleFilterChange: (key: string, value: string) => void;
@@ -17,7 +20,10 @@ type TLabelledInputProps = {
 }
 
 export const FatnessFilter: FC<TProps> = ({ currentFatness, handleFilterChange }) => {
-  const handleInputChange = useCallback((label: string) => handleFilterChange('fatness', label), [handleFilterChange]);
+  const handleInputChange = useCallback(
+    (label: string) => handleFilterChange(filterTypes.fatness, label),
+    [handleFilterChange],
+  );
 
   const LabelledInput: FC<TLabelledInputProps> = ({ id, label }) => (
     <>
@@ -41,7 +47,7 @@ export const FatnessFilter: FC<TProps> = ({ currentFatness, handleFilterChange }
       <div className="fatness-filter__container">
         <LabelledInput
           id="zero"
-          label="0 %"
+          label="0%"
         />
         <LabelledInput
           id="under10"

@@ -107,11 +107,16 @@ export const routes = {
 }
 
 export const sortingFilterOptions = [
-  'По цене',
+  'Сначала дорогие',
+  'Сначала дешевые',
+  'По жирности',
 ];
 
 export const filterTypes = {
   sorting: 'sorting',
+  price: 'price',
+  fatness: 'fatness',
+  fillers: 'fillers',
 }
 
 export const MAXIMUM_PRICE = 714;
@@ -124,6 +129,7 @@ export const catalogItems = [
     text: 'Сливочное с апельсиновым джемом и цитрусовой стружкой',
     fatness: 11,
     filler: 'choco',
+    popularity: 1,
   },
   {
     id: 2,
@@ -132,6 +138,7 @@ export const catalogItems = [
     text: 'Сливочно-кофейное с кусочками шоколада',
     fatness: 0,
     filler: 'fruits',
+    popularity: 2,
   },
   {
     id: 3,
@@ -140,6 +147,7 @@ export const catalogItems = [
     text: 'Сливочно-клубничное с присыпкой из белого шоколада',
     fatness: 4,
     filler: 'jams',
+    popularity: 3,
   },
   {
     id: 4,
@@ -148,6 +156,7 @@ export const catalogItems = [
     text: 'Сливочное крем-брюле с карамельной подливкой',
     fatness: 36,
     filler: 'sugar',
+    popularity: 4,
   },
   {
     id: 5,
@@ -155,7 +164,8 @@ export const catalogItems = [
     src: catalogItem5,
     text: 'Сливочное с брусничным джемом',
     fatness: 38,
-    filler: 'surups',
+    filler: 'syrups',
+    popularity: 5,
   },
   {
     id: 6,
@@ -164,6 +174,7 @@ export const catalogItems = [
     text: 'Сливочно-черничное с цельными ягодами черники ',
     fatness: 0,
     filler: 'fruits',
+    popularity: 6,
   },
   {
     id: 7,
@@ -172,6 +183,7 @@ export const catalogItems = [
     text: 'Сливочно-лимонное с карамельной присыпкой',
     fatness: 7,
     filler: 'jams',
+    popularity: 7,
   },
   {
     id: 8,
@@ -180,6 +192,7 @@ export const catalogItems = [
     text: 'Сливочное с шоколадной стружкой',
     fatness: 19,
     filler: 'choco',
+    popularity: 8,
   },
   {
     id: 9,
@@ -188,6 +201,7 @@ export const catalogItems = [
     text: 'Сливочно-ванильное с кусочками шоколада',
     fatness: 28,
     filler: 'fruits',
+    popularity: 9,
   },
   {
     id: 10,
@@ -196,6 +210,7 @@ export const catalogItems = [
     text: 'Сливочноe с ментоловым сиропом',
     fatness: 40,
     filler: 'sugar',
+    popularity: 10,
   },
     {
     id: 11,
@@ -204,6 +219,7 @@ export const catalogItems = [
     text: 'Сливочное с кусочками черного шоколада',
     fatness: 0,
     filler: 'syrups',
+    popularity: 11,
   },
   {
     id: 12,
@@ -212,5 +228,28 @@ export const catalogItems = [
     text: 'Сливочное с мятным сиропом',
     fatness: 3,
     filler: 'jams',
+    popularity: 12,
   },
 ];
+
+export const labelToSortingMap = {
+  'По популярности': 'popularity',
+  'Сначала дорогие': 'price',
+  'Сначала дешевые': 'price',
+  'По жирности': 'fatness',
+}
+
+export const labelToFatnessMap = {
+  '0%': 1,
+  'до 10%': 11,
+  'до 30%': 31,
+  'выше 30%': 101,
+}
+
+export const labelToFillerMap = {
+  'шоколадные': 'choco',
+  'сахарные присыпки': 'sugar',
+  'фрукты': 'fruits',
+  'сиропы': 'syrups',
+  'джемы': 'jams',
+}

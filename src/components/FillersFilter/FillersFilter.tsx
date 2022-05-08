@@ -6,6 +6,9 @@ import React, {
 // Styles
 import './fillersFilter.scss';
 
+// Constants
+import { filterTypes } from '../../constants';
+
 type TProps = {
   currentFillers: string[];
   handleFilterChange: (key: string, value: string[]) => void;
@@ -30,7 +33,7 @@ export const FillersFilter: FC<TProps> = ({ currentFillers, handleFilterChange }
       newFillers = [...currentFillers, label];
     }
     
-    handleFilterChange('fillers', newFillers);
+    handleFilterChange(filterTypes.fillers, newFillers);
   }, [handleFilterChange, currentFillers]);
 
   const LabelledInput: FC<TLabelledInputProps> = ({ id, label }) => (

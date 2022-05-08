@@ -124,5 +124,9 @@ a {
     &--slide-3 {
       background-color: $mainBackgroundColor3;
     }
+
+    &--catalog {
+      position: relative;
+    }
   }
 }

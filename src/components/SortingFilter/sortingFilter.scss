@@ -13,6 +13,7 @@
 
   &__dropdown {
     position: absolute;
+    z-index: 2;
     top: 42px;
     width: 194px;
     left: 0;
@@ -21,7 +22,7 @@
   }
 
   &__dropdown-item {
-    padding: 5px 10px;
+    padding: 10px;
     text-align: center;
     cursor: pointer;
 

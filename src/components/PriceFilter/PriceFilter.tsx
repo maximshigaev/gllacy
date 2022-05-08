@@ -10,7 +10,10 @@ import { throttle } from 'lodash';
 import './priceFilter.scss';
 
 // Constants
-import { MAXIMUM_PRICE } from '../../constants';
+import { filterTypes } from '../../constants';
+
+// Helpers
+import { getCurrentPrice } from '../../helpers';
 
 type TProps = {
   currentPrice: {
@@ -27,7 +30,7 @@ export const PriceFilter: FC<TProps> = ({ currentPrice, handleFilterChange }) =>
   const innerBarRef = useRef<HTMLDivElement>(null);
 
   const handlePriceChange = throttle((price: { min: number, max: number }) => {   
-    handleFilterChange('price', price);
+    handleFilterChange(filterTypes.price, price);
   }, 50);
 
   const getIsLeftPin = useCallback((evt: MouseEvent | React.KeyboardEvent) => (evt.target as HTMLDivElement)
@@ -162,8 +165,8 @@ export const PriceFilter: FC<TProps> = ({ currentPrice, handleFilterChange }) =>
   return (
     <div className="price-filter">
       <p className="price-filter__title">
-        Цена: {Math.round(MAXIMUM_PRICE * currentPrice.min / 100)} руб.
-        - {Math.round(MAXIMUM_PRICE * currentPrice.max / 100)} руб.
+        Цена: {getCurrentPrice(currentPrice.min)} руб.
+        - {getCurrentPrice(currentPrice.max)} руб.
       </p>
       <div className="price-filter__container">
         <div

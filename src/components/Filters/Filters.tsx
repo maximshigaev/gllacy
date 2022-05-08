@@ -15,47 +15,66 @@ import {
 // Styles
 import './filters.scss';
 
-export const Filters: FC = () => {
-  const [currentFilters, setCurrentFilters] = useState({
+// Types
+import { TCurrentFilters } from '../../types';
+
+type TProps = {
+  handleApplyBtnClick: (currentFilters: TCurrentFilters) => void;
+}
+
+export const Filters: FC<TProps> = ({ handleApplyBtnClick }) => {
+  const [filters, setFilters] = useState({
     sorting: 'По популярности',
     price: {
       min: 14,
       max: 70,
     },
-    fatness: 'до 10%',
+    fatness: 'до 30%',
     fillers: [
       'шоколадные',
       'сахарные присыпки',
+      'фрукты',
+      'сиропы',
+      'джемы',
     ],
   });
 
   const handleFilterChange = useCallback((key: string, value: string | { min: number, max: number } | string[]) => {
-    setCurrentFilters({
-      ...currentFilters,
+    const newFilters = {
+      ...filters,
       [key]: value,
-    });
-  }, [currentFilters]);
+    }
+
+    setFilters(newFilters);
+  }, [filters]);
 
   return (
     <div className="filters">
       <form className="filters__form">
         <SortingFilter
-          currentSorting={currentFilters.sorting}
+          currentSorting={filters.sorting}
           handleFilterChange={handleFilterChange}
         />
         <PriceFilter
-          currentPrice={currentFilters.price}
+          currentPrice={filters.price}
           handleFilterChange={handleFilterChange}
         />
         <FatnessFilter
-          currentFatness={currentFilters.fatness}
+          currentFatness={filters.fatness}
           handleFilterChange={handleFilterChange}
         />
         <FillersFilter
-          currentFillers={currentFilters.fillers}
+          currentFillers={filters.fillers}
           handleFilterChange={handleFilterChange}
         />
-        <button className="filters__btn" title="Применить">Применить</button>
+        <button
+          className="filters__btn"
+          title="Применить"
+          type="button"
+          onClick={() => handleApplyBtnClick(filters)}
+        >
+          Применить
+        </button>
       </form>
     </div>
   );
