@@ -48,13 +48,13 @@
   }
 
   &__info-item {
-    min-width: 162px;
+    padding-left: 25px;
   }
 
   &__info-links {
-    display: flex;
-    flex-wrap: wrap;
-    width: 324px;
+    display: grid;
+    grid-template-columns: 141px 190px;
+    width: 350px;
     margin-top: 12px;
   }
 
@@ -119,12 +119,8 @@
     height: 39px;
     display: block;
     cursor: pointer;
+    margin-bottom: 3px;
 
     @include defaultHover;
-  }
-
-  &__info-links {
-    display: flex;
-    flex-wrap: wrap;
   }
 }

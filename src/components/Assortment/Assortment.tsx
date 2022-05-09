@@ -9,7 +9,14 @@ import './assortment.scss';
 // Constants
 import { assortmentItems } from '../../constants';
 
-export const Assortment: FC = () => (
+// Types
+import { TCartItem } from '../../types';
+
+type TProps = {
+  addCartItem: (cartItem: TCartItem) => void;
+}
+
+export const Assortment: FC<TProps> = ({ addCartItem }) => (
   <section className="assortment">
     <h2 className="visually-hidden">Наш ассортимент</h2>
     <ul className="assortment__list">
@@ -20,6 +27,7 @@ export const Assortment: FC = () => (
             text={text}
             price={price}
             isHit={isHit}
+            addCartItem={addCartItem}
           />
         </li>
       ))}

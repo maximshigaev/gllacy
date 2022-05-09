@@ -24,9 +24,16 @@ type TProps = {
   deleteCartItem: (id: number) => void;
   currentTopOfferId: number;
   setCurrentTopOfferId: (id: number) => void;
+  addCartItem: (cartItem: TCartItem) => void;
 }
 
-export const MainPage: FC<TProps> = ({ cartItems, deleteCartItem , currentTopOfferId, setCurrentTopOfferId}) => (
+export const MainPage: FC<TProps> = ({
+  cartItems,
+  deleteCartItem,
+  currentTopOfferId,
+  setCurrentTopOfferId,
+  addCartItem,
+}) => (
   <div className={`page__wrapper page__wrapper--slide-${currentTopOfferId}`}>
     <div className={`page__container page__container--slide-${currentTopOfferId}`}>
       <Header cartItems={cartItems} deleteCartItem={deleteCartItem} />
@@ -34,7 +41,7 @@ export const MainPage: FC<TProps> = ({ cartItems, deleteCartItem , currentTopOff
         <h1 className="visually-hidden">Магазин мороженого Глэйси</h1>
         <Offers currentTopOfferId={currentTopOfferId} setCurrentTopOfferId={setCurrentTopOfferId} />
         <Promotions />
-        <Assortment />
+        <Assortment addCartItem={addCartItem} />
         <Advantages />
         <div className="main-page__columns-wrapper">
           <News />

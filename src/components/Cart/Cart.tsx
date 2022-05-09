@@ -34,17 +34,27 @@ export const Cart: FC<TProps> = ({
         onMouseLeave={handleCartMouseLeave}
         onMouseEnter={handleCartMouseEnter}
       >
-        <ul className="cart__list">
-          {cartItems.map((cartItem) => (
-            <li key={cartItem.id}>
-              <CartItem cartItem={cartItem} deleteCartItem={deleteCartItem} />
-            </li>
-          ))}
-        </ul>
+        {cartItems.length ? (
+          <ul className="cart__list">
+            {cartItems.map((cartItem) => (
+              <li key={cartItem.id}>
+                <CartItem cartItem={cartItem} deleteCartItem={deleteCartItem} />
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <div className="cart__info">Корзина пуста</div>
+        )}
         <div className="cart__cost">
           Итого: {getCartSum(cartItems)} руб.
         </div>
-        <button className="button cart__button" title="Оформить заказ">Оформить заказ</button>
+        <button
+          className="button cart__button"
+          title="Оформить заказ"
+          disabled={!cartItems.length}
+        >
+          Оформить заказ
+          </button>
       </div>
     )}
   </>

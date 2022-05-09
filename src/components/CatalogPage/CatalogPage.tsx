@@ -11,6 +11,7 @@ import {
   Header,
   Filters,
   Catalog,
+  Footer,
 } from '../';
 
 // Styles
@@ -39,9 +40,10 @@ type TProps = {
   cartItems: TCartItem[];
   deleteCartItem: (id: number) => void;
   currentTopOfferId: number;
+  addCartItem: (cartItem: TCartItem) => void;
 }
 
-export const CatalogPage: FC<TProps> = ({ cartItems, deleteCartItem, currentTopOfferId }) => {
+export const CatalogPage: FC<TProps> = ({ cartItems, deleteCartItem, currentTopOfferId, addCartItem }) => {
   const [renderedCatalogItems, setRenderedCatalogItems] = useState([...catalogItems]);
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -122,8 +124,10 @@ export const CatalogPage: FC<TProps> = ({ cartItems, deleteCartItem, currentTopO
           </ul>
           <h2 className="catalog-page__title">Сливочное мороженое</h2>
           <Filters handleApplyBtnClick={handleApplyBtnClick} />
-          <Catalog catalogItems={renderedCatalogItems
-            .slice((currentPage - 1) * CATALOG_PAGE_SIZE, currentPage * CATALOG_PAGE_SIZE)}
+          <Catalog
+            catalogItems={renderedCatalogItems
+              .slice((currentPage - 1) * CATALOG_PAGE_SIZE, currentPage * CATALOG_PAGE_SIZE)}
+            addCartItem={addCartItem}
           />
           {(numberOfPages > 1) && (
             <div className="catalog-page__pagination">
@@ -154,6 +158,7 @@ export const CatalogPage: FC<TProps> = ({ cartItems, deleteCartItem, currentTopO
             </div>
           )}
         </main>
+        <Footer />
       </div>
     </div>
   );

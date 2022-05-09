@@ -4,6 +4,8 @@
   &__main {
     display: flex;
     flex-direction: column;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #ffffff;
   }
 
   &__breadcrumbs {

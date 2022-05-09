@@ -14,10 +14,6 @@ import {
   CatalogPage,
 } from '../';
 
-// Images
-import cartIconItem1 from '../../images/icecream-icon-1.png';
-import cartIconItem2 from '../../images/icecream-icon-2.png';
-
 // Types
 import { TCartItem } from '../../types';
 
@@ -26,23 +22,7 @@ import { routes } from '../../constants';
 
 export const App: FC = () => {
   const [currentTopOfferId, setCurrentTopOfferId] = useState(1);
-
-  const [cartItems, setCartItems] = useState<TCartItem[]>([
-    {
-      id: 1,
-      name: 'Пломбир с апельсиновым джемом',
-      weight: 1.5,
-      price: 200,
-      src: cartIconItem1,
-    },
-    {
-      id: 2,
-      name: 'Клубничный пломбир с присыпкой из белого шоколада',
-      weight: 1.5,
-      price: 300,
-      src: cartIconItem2,
-    },
-  ]);
+  const [cartItems, setCartItems] = useState<TCartItem[]>([]);
 
   const deleteCartItem = useCallback((id: number) => {
     const indexToDelete = cartItems.findIndex((cartItem) => cartItem.id === id);
@@ -54,6 +34,18 @@ export const App: FC = () => {
     );
   }, [cartItems]);
 
+  const addCartItem = useCallback((cartItem: TCartItem) => {
+    setCartItems([
+      ...cartItems,
+      {
+        ...cartItem,
+        id: cartItems.length
+          ? cartItems[cartItems.length - 1].id + 1
+          : 1,
+      }
+    ]);   
+  }, [cartItems]);
+
   return (
     <Routes>
       <Route
@@ -62,6 +54,7 @@ export const App: FC = () => {
           <MainPage
             cartItems={cartItems}
             deleteCartItem={deleteCartItem}
+            addCartItem={addCartItem}
             currentTopOfferId={currentTopOfferId}
             setCurrentTopOfferId={setCurrentTopOfferId}
           />
@@ -73,6 +66,7 @@ export const App: FC = () => {
           <CatalogPage
             cartItems={cartItems}
             deleteCartItem={deleteCartItem}
+            addCartItem={addCartItem}
             currentTopOfferId={currentTopOfferId}
           />
         }

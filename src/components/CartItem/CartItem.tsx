@@ -15,10 +15,7 @@ type TProps = {
 }
 
 export const CartItem: FC<TProps> = ({ cartItem: { src, name, weight, price, id }, deleteCartItem }) => {
-  const handleDeleteBtnClick = useCallback(
-    () => deleteCartItem(id),
-    [deleteCartItem, id],
-  );
+  const handleDeleteBtnClick = useCallback(() => deleteCartItem(id), [deleteCartItem, id]);
 
   return (
     <div className="cart-item">
@@ -30,6 +27,8 @@ export const CartItem: FC<TProps> = ({ cartItem: { src, name, weight, price, id 
       <img
         className="cart-item__icon"
         src={src}
+        width="33"
+        height="33"
         alt="Мини-фото мороженого"
       />
       <p className="cart-item__name">{name}</p>

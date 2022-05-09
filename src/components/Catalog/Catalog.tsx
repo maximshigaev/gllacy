@@ -7,13 +7,17 @@ import { AssortmentItem } from '../';
 import './catalog.scss';
 
 // Types
-import { TCatalogItem } from '../../types';
+import {
+  TCatalogItem,
+  TCartItem,
+} from '../../types';
 
 type TProps = {
   catalogItems: TCatalogItem[];
+  addCartItem: (cartItem: TCartItem) => void;
 }
 
-export const Catalog: FC<TProps> = ({ catalogItems }) => (
+export const Catalog: FC<TProps> = ({ catalogItems, addCartItem }) => (
   <div className="catalog">
     <ul className="catalog__list">
       {catalogItems.map(({ src, text, price, id }) => (
@@ -22,6 +26,7 @@ export const Catalog: FC<TProps> = ({ catalogItems }) => (
             src={src}
             text={text}
             price={price}
+            addCartItem={addCartItem}
           />
         </li>
       ))}
