@@ -1,32 +1,33 @@
-import { FC } from 'react';
+import {
+  FC,
+  useCallback,
+} from 'react';
 
 // Styles
 import './headerSearchForm.scss';
 
 type TProps = {
-  isVisible: boolean;
   handleHeaderSearchFormMouseLeave: () => void;
-  handleHeaderSearchFormMouseEnter: () => void;
 }
 
-export const HeaderSearchForm: FC<TProps> = ({
-  isVisible,
-  handleHeaderSearchFormMouseLeave,
-  handleHeaderSearchFormMouseEnter,
-}) => (
-  <>
-    {isVisible && (
-      <form
-        className="header-search-form"
-        onMouseLeave={handleHeaderSearchFormMouseLeave}
-        onMouseEnter={handleHeaderSearchFormMouseEnter}
-      >
-        <input
-          className="header-search-form__input"
-          placeholder="Что ищем?"
-          type="text"
-        />
-      </form>
-    )}
-  </>
-);
+export const HeaderSearchForm: FC<TProps> = ({ handleHeaderSearchFormMouseLeave }) => {
+  const handleHeaderSearchInputBlur = useCallback((evt: React.FocusEvent) => {    
+    if (evt.relatedTarget && !evt.relatedTarget.classList.contains('header__search-btn')) {
+      handleHeaderSearchFormMouseLeave();      
+    }
+  }, [handleHeaderSearchFormMouseLeave]);
+
+  return (
+    <form
+      className="header-search-form"
+      onMouseLeave={handleHeaderSearchFormMouseLeave}
+    >
+      <input
+        className="input header-search-form__input"
+        placeholder="Что ищем?"
+        type="text"
+        onBlur={handleHeaderSearchInputBlur}
+      />
+    </form>
+  );
+}

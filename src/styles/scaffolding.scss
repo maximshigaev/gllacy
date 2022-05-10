@@ -55,6 +55,19 @@ img {
 
 a {
   text-decoration: none;
+
+  &:hover,
+  &:focus {
+    outline: none;
+  }
+}
+
+button {
+
+  &:hover,
+  &:focus {
+    outline: none;
+  }
 }
 
 *,
@@ -93,6 +106,29 @@ a {
     background-image: none;
     box-shadow: none;
     cursor: default;
+  }
+}
+
+.input {
+  border: 1px solid #d3d3d2;
+  border-radius: 5px;
+  background-color: #ffffff;
+  font: inherit;
+  font-weight: 700;
+
+  &:hover,
+  &:focus {
+    outline: solid 2px rgba(154, 154, 154, 0.52);
+    border-color: transparent;
+  }
+
+  &:active {
+    outline: solid 2px rgba(46, 136, 228, 0.52);
+    border-color: transparent;
+  }
+
+  &::placeholder {
+    color: #999999;
   }
 }
 

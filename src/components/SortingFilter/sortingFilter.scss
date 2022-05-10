@@ -21,14 +21,6 @@
     background-color: #9db1a5;
   }
 
-  &__dropdown-item {
-    padding: 10px;
-    text-align: center;
-    cursor: pointer;
-
-    @include defaultHover;
-  }
-
   &__container {
     font-weight: 500;
     line-height: 1.13;
@@ -54,10 +46,37 @@
     background-color: transparent;
     cursor: pointer;
 
-    @include defaultHover;
+    &:hover,
+    &:focus {
+      background-image: url('../../images/sort-arrow-icon-hover.png');
+
+      &+span {
+        color: #000000;
+      }
+    }
 
     &--up {
       transform: rotate(180deg);
+    }
+  }
+
+  &__dropdown-btn {
+    font: inherit;
+    width: 100%;
+    padding: 10px;
+    display: block;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #ffffff;
+
+    &:hover,
+    &:focus {
+      color: #000000;
+    }
+
+    &:active {
+      opacity: 0.5;
     }
   }
 }

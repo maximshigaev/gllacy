@@ -15,7 +15,6 @@
       background-color: #f7f6f3;
       border-radius: 25px;
       color: black;
-      outline: none;
     }
 
     &:active {
@@ -63,7 +62,6 @@
     &:focus {
       background-color: #ffffff;
       color: #000000;
-      outline: none;
     }
 
     &:active {
@@ -146,11 +144,22 @@
     width: 100%;
   }
 
+  &__logo-link {
+    height: 62px;
+
+    &:hover,
+    &:focus {
+      opacity: 0.5;
+    }
+
+    &:active {
+      opacity: 0.2;
+    }
+  }
+
   &__logo {
     width: 154px;
     height: 62px;
-
-    @include defaultHover;
   }
 
   &__nav {
@@ -193,7 +202,6 @@
     &:focus {
       background-image: url('../../images/search-icon-hover.png');
       background-color: #ffffff;
-      outline: none;
     }
 
     &:active {

@@ -17,5 +17,16 @@
     background-color: #9db1a5;
     color: #ffffff;
     align-self: end;
+
+    &:hover,
+    &:focus {
+      color: #000000;
+      background-color: #ffffff;
+    }
+
+    &:active {
+      box-shadow: inset 0px 2px 1px 0 #696969;
+      background-color: #ededed;
+    }
   }
 }

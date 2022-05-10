@@ -18,18 +18,17 @@
     line-height: 1.14;
     color: #ffffff;
     margin-right: 21px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    text-decoration: underline;
 
     &--current {
-      border-bottom: none;
+      text-decoration: none;
+      cursor: default;
     }
   }
 
   &__breadcrumb {
     &:not(:last-child) {
       position: relative;
-
-      @include defaultHover;
 
       &::before {
         position: absolute;
@@ -38,6 +37,10 @@
         width: 10px;
         height: 10px;
         color: #ffffff;
+      }
+
+      .catalog-page__breadcrumbs-link {
+        @include defaultHover;
       }
     }
   }
@@ -55,6 +58,7 @@
     align-self: flex-end;
     height: 26px;
     align-items: center;
+    margin-top: 39px;
   }
 
   &__pagination-list {
@@ -71,11 +75,17 @@
     font-size: 16px;
     margin-right: 1px;
     margin-left: 1px;
+    border-radius: 50%;
+
+    &:hover,
+    &:focus {
+      background-color: #9db1a5;
+    }
 
     &--current {
-      border-radius: 50%;
       background-color: #ffffff;
       color: #000000;
+      cursor: default;
     }
   }
 
@@ -86,6 +96,15 @@
     height: 12px;
     background-color: transparent;
     cursor: pointer;
+
+    &:hover,
+    &:focus {
+      opacity: 0.5;
+    }
+
+    &:active {
+      opacity: 0.2;
+    }
 
     &--prev {
       background-image: url('../../images/prev-arrow-icon.png');
@@ -99,6 +118,7 @@
 
     &:disabled {
       opacity: 0.2;
+      cursor: default;
     }
   }
 }

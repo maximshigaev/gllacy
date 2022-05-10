@@ -48,22 +48,24 @@ export const SortingFilter: FC<TProps> = ({ currentSorting, handleFilterChange }
     <div className="sorting-filter">
       <p className="sorting-filter__title">Сортировка:</p>
       <div className="sorting-filter__container">
-        {currentSorting}
         <button
           className={sortBtnClass}
           type="button"
           title={isSortDropdownOpened ? 'Закрыть список' : 'Раскрыть список'}
           onClick={handleSortBtnClick}
         />
+        <span>{currentSorting}</span>
         {isSortDropdownOpened && (
           <ul className="sorting-filter__dropdown">
             {availableOptions.map((availableOption, index) => (
-              <li
-                className="sorting-filter__dropdown-item"
-                key={index}
-                onClick={() => handleDropdownItemClick(availableOption)}
-              >
-                {availableOption}
+              <li key={index}>
+                <button
+                  className="sorting-filter__dropdown-btn"
+                  title={availableOption}
+                  onClick={() => handleDropdownItemClick(availableOption)}
+                >
+                  {availableOption}
+                </button>
               </li>
             ))}
           </ul>

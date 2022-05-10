@@ -10,22 +10,10 @@
   padding: 20px 15px;
   z-index: 2;
 
-  &__input {
+  &__input.input {
     width: 100%;
     height: 44px;
-    border: 1px solid #d3d3d2;
-    background-color: #fff;
     padding: 15px;
-    font: inherit;
     font-size: 14px;
-
-    &:hover,
-    &:focus {
-      border: 1px solid black;
-    }
-
-    &::placeholder {
-      color: #999999;
-    }
   }
 }

@@ -23,8 +23,19 @@
     background-color: transparent;
     cursor: pointer;
 
+    &:hover,
+    &:focus {
+      background-color: #9db1a5;
+    }
+
     &--current {
       background-color: #ffffff;
+      cursor: default;
+
+      &:hover,
+      &:focus {
+        background-color: #ffffff;
+      }
     }
   }
 }

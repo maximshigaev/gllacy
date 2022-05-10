@@ -1,4 +1,4 @@
-import {
+import React, {
   FC,
   useState,
   useCallback,
@@ -44,12 +44,51 @@ export const Header: FC<TProps> = ({ cartItems, deleteCartItem }) => {
   const [isCartVisible, setIsCartVisible] = useState(false);
 
   const handleCatalogLinkMouseEnter = useCallback(() => setIsCatalogDropdownMenuVisible(true), []);
-  const handleCatalogLinkMouseLeave = useCallback(() => setIsCatalogDropdownMenuVisible(false), []);
-  const handleHeaderSearchFormMouseEnter = useCallback(() => setIsHeaderSearchFormVisible(true), []);
+  const handleCatalogLinkFocus = handleCatalogLinkMouseEnter;
+  const handleCatalogLinkMouseLeave = useCallback((evt: React.FocusEvent | React.MouseEvent) => {
+    if (evt.relatedTarget
+      && !(evt.relatedTarget as HTMLElement).classList.contains('catalog-dropdown-menu__link--main')
+    ) {
+      setIsCatalogDropdownMenuVisible(false);
+    }    
+  }, []);
+  const handleCatalogLinkBlur = handleCatalogLinkMouseLeave;
+  const handleCatalogDropdownMenuMouseLeave = useCallback(() => setIsCatalogDropdownMenuVisible(false), []);
+
+  const handleHeaderSearchBtnMouseEnter = useCallback(() => setIsHeaderSearchFormVisible(true), []);
+  const handleHeaderSearchBtnFocus = handleHeaderSearchBtnMouseEnter;
+  const handleHeaderSearchBtnMouseLeave = useCallback((evt: React.MouseEvent | React.FocusEvent) => {    
+    if (evt.relatedTarget && !((evt.relatedTarget as HTMLElement).classList.contains('header-search-form')
+      || ((evt.relatedTarget as HTMLElement).classList.contains('header-search-form__input')))
+    ) {
+      setIsHeaderSearchFormVisible(false);
+    }
+  }, []);
+  const handleHeaderSearchBtnBlur = handleHeaderSearchBtnMouseLeave;
   const handleHeaderSearchFormMouseLeave = useCallback(() => setIsHeaderSearchFormVisible(false), []);
-  const handleHeaderLoginFormMouseEnter = useCallback(() => setIsHeaderLoginFormVisible(true), []);
+
+  const handleHeaderLoginLinkMouseEnter = useCallback(() => setIsHeaderLoginFormVisible(true), []);
+  const handleHeaderLoginLinkFocus = handleHeaderLoginLinkMouseEnter;
+  const handleHeaderLoginLinkMouseLeave = useCallback((evt: React.MouseEvent | React.FocusEvent) => {
+    if (evt.relatedTarget && !((evt.relatedTarget as HTMLElement).classList.contains('header-login-form')
+      || (evt.relatedTarget as HTMLElement).classList.contains('header-login-form__input'))
+    ) {
+      setIsHeaderLoginFormVisible(false);
+    }    
+  }, []);
+  const handleHeaderLoginLinkBlur = handleHeaderLoginLinkMouseLeave;
   const handleHeaderLoginFormMouseLeave = useCallback(() => setIsHeaderLoginFormVisible(false), []);
-  const handleCartMouseEnter = useCallback(() => setIsCartVisible(true), []);
+
+  const handleCartBtnMouseEnter = useCallback(() => setIsCartVisible(true), []);
+  const handleCartBtnFocus = handleCartBtnMouseEnter;
+  const handleCartBtnMouseLeave = useCallback((evt: React.MouseEvent | React.FocusEvent) => {    
+    if (evt.relatedTarget && !((evt.relatedTarget as HTMLElement).classList.contains('cart')
+      || ((evt.relatedTarget as HTMLElement).classList.contains('cart-item__btn')))
+    ) {
+      setIsCartVisible(false);
+    }
+  }, []);
+  const handleCartBtnBlur = handleCartBtnMouseLeave;
   const handleCartMouseLeave = useCallback(() => setIsCartVisible(false), []);
 
   const { pathname: path } = useLocation();
@@ -65,7 +104,10 @@ export const Header: FC<TProps> = ({ cartItems, deleteCartItem }) => {
   return (
     <header className="header">
       <nav className="header__nav">
-        <Link to={(path !== routes.mainPage) ? routes.mainPage : '#'}>
+        <Link
+        className="header__logo-link"
+          to={(path !== routes.mainPage) ? routes.mainPage : '#'}
+        >
           <img
             className="header__logo"
             src={logo}
@@ -83,14 +125,14 @@ export const Header: FC<TProps> = ({ cartItems, deleteCartItem }) => {
               to={routes.catalogPage}
               onMouseEnter={handleCatalogLinkMouseEnter}
               onMouseLeave={handleCatalogLinkMouseLeave}
+              onFocus={handleCatalogLinkFocus}
+              onBlur={handleCatalogLinkBlur}
             >
               Каталог
             </Link>
-            <CatalogDropdownMenu
-              isVisible={isCatalogDropdownMenuVisible}
-              handleCatalogLinkMouseEnter={handleCatalogLinkMouseEnter}
-              handleCatalogLinkMouseLeave={handleCatalogLinkMouseLeave}
-            />
+            {isCatalogDropdownMenuVisible && (
+              <CatalogDropdownMenu handleCatalogDropdownMenuMouseLeave={handleCatalogDropdownMenuMouseLeave} />
+            )}
           </li>
           <li className="header__nav-item">
             <a
@@ -115,52 +157,54 @@ export const Header: FC<TProps> = ({ cartItems, deleteCartItem }) => {
           <button
             className="header__search-btn"
             type="button"
-            onMouseEnter={handleHeaderSearchFormMouseEnter}
-            onMouseLeave={handleHeaderSearchFormMouseLeave}
             title="Поиск"
+            onMouseEnter={handleHeaderSearchBtnMouseEnter}
+            onMouseLeave={handleHeaderSearchBtnMouseLeave}
+            onFocus={handleHeaderSearchBtnFocus}
+            onBlur={handleHeaderSearchBtnBlur}
           />
-          <HeaderSearchForm
-            isVisible={isHeaderSearchFormVisible}
-            handleHeaderSearchFormMouseEnter={handleHeaderSearchFormMouseEnter}
-            handleHeaderSearchFormMouseLeave={handleHeaderSearchFormMouseLeave}
-          />
+          {isHeaderSearchFormVisible && (
+            <HeaderSearchForm handleHeaderSearchFormMouseLeave={handleHeaderSearchFormMouseLeave} />
+          )}
           <ul className="header__cart-links">
             <li>
               <a
                 className="header__login-link"
                 title="Вход"
-                onMouseEnter={handleHeaderLoginFormMouseEnter}
-                onMouseLeave={handleHeaderLoginFormMouseLeave}
                 href="#"
+                onMouseEnter={handleHeaderLoginLinkMouseEnter}
+                onMouseLeave={handleHeaderLoginLinkMouseLeave}
+                onFocus={handleHeaderLoginLinkFocus}
+                onBlur={handleHeaderLoginLinkBlur}
               >
                 Вход
               </a>
-              <HeaderLoginForm
-                isVisible={isHeaderLoginFormVisible}
-                handleHeaderLoginFormMouseEnter={handleHeaderLoginFormMouseEnter}
-                handleHeaderLoginFormMouseLeave={handleHeaderLoginFormMouseLeave}
-              />
+              {isHeaderLoginFormVisible && (
+                <HeaderLoginForm handleHeaderLoginFormMouseLeave={handleHeaderLoginFormMouseLeave} />
+              )}
             </li>
             <li>
               <a
                 className={cartLinkClass}
                 title="Корзина"
                 href="#"
-                onMouseEnter={handleCartMouseEnter}
-                onMouseLeave={handleCartMouseLeave}
+                onMouseEnter={handleCartBtnMouseEnter}
+                onMouseLeave={handleCartBtnMouseLeave}
+                onFocus={handleCartBtnFocus}
+                onBlur={handleCartBtnBlur}
               >
                 {(cartItems.length === 0)
                   ? 'Пусто'
                   : cartItems.length + ' товар' + getCartItemsEnding(cartItems.length)
                 }
               </a>
-              <Cart
-                isVisible={isCartVisible}
-                cartItems={cartItems}
-                deleteCartItem={deleteCartItem}
-                handleCartMouseEnter={handleCartMouseEnter}
-                handleCartMouseLeave={handleCartMouseLeave}
-              />
+              {isCartVisible && (
+                <Cart
+                  cartItems={cartItems}
+                  deleteCartItem={deleteCartItem}
+                  handleCartMouseLeave={handleCartMouseLeave}
+                />
+              )}
             </li>
           </ul>
           <p className="header__time">С 10 до 20, ежедневно</p>

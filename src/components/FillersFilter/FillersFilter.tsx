@@ -39,7 +39,7 @@ export const FillersFilter: FC<TProps> = ({ currentFillers, handleFilterChange }
   const LabelledInput: FC<TLabelledInputProps> = ({ id, label }) => (
     <>
       <input
-        className="fillers-filter__input"
+        className="visually-hidden fillers-filter__input"
         type="checkbox"
         id={id}
         checked={currentFillers.includes(label)}
@@ -48,6 +48,7 @@ export const FillersFilter: FC<TProps> = ({ currentFillers, handleFilterChange }
       <label
         className="fillers-filter__label"
         htmlFor={id}
+        title={label}
       >
         {label}
       </label>

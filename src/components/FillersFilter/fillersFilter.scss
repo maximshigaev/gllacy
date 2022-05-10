@@ -24,7 +24,19 @@
   }
 
   &__input {
-    display: none;
+
+    &:hover,
+    &:focus {
+      &+.fillers-filter__label {
+        opacity: 1;
+      }
+    }
+
+    &:active {
+      &+.fillers-filter__label {
+        opacity: 0.4;
+      }
+    }
 
     &:checked+.fillers-filter__label {
       &::before {
@@ -39,6 +51,7 @@
     padding-left: 35px;
     padding-right: 19px;
     cursor: pointer;
+    opacity: 0.8;
 
     &:last-child {
       padding-right: 0;

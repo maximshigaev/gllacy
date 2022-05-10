@@ -12,7 +12,7 @@ export const SubscriptionForm: FC = () => (
     </p>
     <form className="subscription-form__form">
       <input
-        className="subscription-form__input"
+        className="input subscription-form__input"
         type="email"
         placeholder="Электронная почта"
       />

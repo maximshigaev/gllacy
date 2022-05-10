@@ -1,6 +1,7 @@
-import {
+import React, {
   FC,
   useCallback,
+  useRef,
 } from 'react';
 import cn from 'classnames';
 
@@ -19,7 +20,7 @@ type TProps = {
 }
 
 export const AssortmentItem: FC<TProps> = ({ src, text, price, isHit, addCartItem }) => {
-  const assignmentItemClass = cn('assortment-item', {
+  const assortmentItemClass = cn('assortment-item', {
     'assortment-item--hit': isHit,
   });
 
@@ -33,8 +34,31 @@ export const AssortmentItem: FC<TProps> = ({ src, text, price, isHit, addCartIte
     });
   }, [src, text, price, addCartItem]);
 
+  const handleAssortmentItemFocus = useCallback((evt: React.FocusEvent) => {
+    assortmentItemBtnContainerRef.current!.classList.add('hover');
+    evt.target.classList.add('hover');
+  }, []);
+
+  const handleAssortmentItemBlur = useCallback((evt: React.FocusEvent) => {
+    if (!evt.relatedTarget || !evt.relatedTarget.classList.contains('assortment-item__btn')) {
+      evt.target.classList.remove('hover');
+      assortmentItemBtnContainerRef.current!.classList.remove('hover');   
+    }
+  }, []);
+
+  const handleAssortmentItemBtnBlur = useCallback((evt: React.FocusEvent) => {    
+    evt.target.closest('.assortment-item')!.classList.remove('hover');
+  }, []);
+
+  const assortmentItemBtnContainerRef = useRef<HTMLDivElement>(null);
+
   return (
-    <div className={assignmentItemClass}> 
+    <div
+      className={assortmentItemClass}
+      tabIndex={0}
+      onFocus={handleAssortmentItemFocus}
+      onBlur={handleAssortmentItemBlur}
+    > 
       <img
         src={src}
         alt={text}
@@ -46,11 +70,12 @@ export const AssortmentItem: FC<TProps> = ({ src, text, price, isHit, addCartIte
         <small className="assortment-item__unit">/кг</small>
       </span>
       <p className="assortment-item__text">{text}</p>
-      <div className="assortment-item__btn-container">
+      <div className="assortment-item__btn-container" ref={assortmentItemBtnContainerRef}>
         <button
           className="button assortment-item__btn"
           title="Добавить в корзину"
           onClick={handleAddBtnClick}
+          onBlur={handleAssortmentItemBtnBlur}
         >
           Добавить в корзину
         </button>

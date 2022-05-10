@@ -28,14 +28,18 @@ export const FatnessFilter: FC<TProps> = ({ currentFatness, handleFilterChange }
   const LabelledInput: FC<TLabelledInputProps> = ({ id, label }) => (
     <>
       <input
-        className="fatness-filter__input"
+        className="visually-hidden fatness-filter__input"
         type="radio"
         name="fatness"
         id={id}
         checked={currentFatness === label}
         onChange={() => handleInputChange(label)}
       />
-      <label className="fatness-filter__label" htmlFor={id}>
+      <label
+        className="fatness-filter__label"
+        htmlFor={id}
+        title={label}
+      >
         {label}
       </label>
     </>

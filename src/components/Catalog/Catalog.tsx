@@ -19,17 +19,21 @@ type TProps = {
 
 export const Catalog: FC<TProps> = ({ catalogItems, addCartItem }) => (
   <div className="catalog">
-    <ul className="catalog__list">
-      {catalogItems.map(({ src, text, price, id }) => (
-        <li key={id}>
-          <AssortmentItem
-            src={src}
-            text={text}
-            price={price}
-            addCartItem={addCartItem}
-          />
-        </li>
-      ))}
-    </ul>
+    {catalogItems.length ? (
+      <ul className="catalog__list">
+        {catalogItems.map(({ src, text, price, id }) => (
+          <li key={id}>
+            <AssortmentItem
+              src={src}
+              text={text}
+              price={price}
+              addCartItem={addCartItem}
+            />
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <div className="catalog__empty-message">Не найдено товаров, соответствующих критериям поиска</div>
+    )}
   </div>
 );

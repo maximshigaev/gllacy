@@ -49,6 +49,7 @@ export const Offers: FC<TProps> = ({ currentTopOfferId, setCurrentTopOfferId }) 
               className={getToggleBtnClass(index + 1)}
               type="button"
               title={`${index + 1}й слайд`}
+              disabled={index + 1 === currentTopOfferId}
               onClick={() => handleToggleBtnClick(index + 1)}
             />
           </li>

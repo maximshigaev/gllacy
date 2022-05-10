@@ -1,4 +1,5 @@
 @import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
 
 .contacts {
   position: relative;
@@ -35,6 +36,8 @@
 
   &__phone {
     color: $mainTextColor;
+
+    @include defaultHover;
   }
 
   &__info {

@@ -117,6 +117,7 @@ export const CatalogPage: FC<TProps> = ({ cartItems, deleteCartItem, currentTopO
                 className="catalog-page__breadcrumbs-link catalog-page__breadcrumbs-link--current"
                 title="Сливочное"
                 href="#"
+                tabIndex={-1}
               >
                 Сливочное
               </a>
@@ -142,6 +143,8 @@ export const CatalogPage: FC<TProps> = ({ cartItems, deleteCartItem, currentTopO
                   <li key={index}>
                     <button
                       className={getPaginationBtnClass(index + 1)}
+                      title={`Страница ${index + 1}`}
+                      disabled={index + 1 === currentPage}
                       onClick={() => handlePaginationBtnClick(index + 1)}
                     >
                       {index + 1}
